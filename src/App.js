@@ -69,10 +69,9 @@ export default class App extends Component {
             </ul>
           </nav>    
 
-          <Route path="/" exact component={Table}/>
-          {/* <Route path="/matches/" component={Matches}/> */}
-          <Route path="/matches/" render={() => <Matches test={this.state.testData} />}/>
-          <Route path="/analysis/" component={Analysis}/>
+          <Route path="/" exact render={() => <Table standings={this.state.standings} />} />
+          <Route path="/matches/" render={() => <Matches matches={this.state.matches} />}/>
+          <Route path="/analysis/" render={() => <Analysis /> } />
 
         </>
       </Router>        
