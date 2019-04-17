@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import authToken from './AuthToken';
+// import AppRouter from './AppRouter';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Analysis from './Pages/Analysis';
+import Matches from './Pages/Matches';
+import Table from './Pages/Table';
 
 export default class App extends Component {
 
@@ -10,7 +15,8 @@ export default class App extends Component {
         teams: null,
         matches: null,
         loading: true,
-        error: false
+        error: false,
+        testData: "Did we pass it? YES! YES WE DID!!!"
       }
         this.fetchStandings = this.fetchStandings.bind(this);
         this.fetchTeams = this.fetchTeams.bind(this);
@@ -23,6 +29,7 @@ export default class App extends Component {
     this.fetchMatches();
   }
 
+  // add a console log to notify when data has been fetched, to keep an eye on how it's working?
   fetchStandings() {
     fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}} )
       .then(response => response.json())
@@ -46,9 +53,30 @@ export default class App extends Component {
 
   render() {
     return (
-      <h1>Under construction!</h1>
+      <Router>
+        <>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Table</Link>
+              </li>
+              <li>
+                <Link to="/matches/">Matches</Link>
+              </li>  
+              <li>
+                <Link to="/analysis/">Analysis</Link>
+              </li>
+            </ul>
+          </nav>    
+
+          <Route path="/" exact component={Table}/>
+          {/* <Route path="/matches/" component={Matches}/> */}
+          <Route path="/matches/" render={() => <Matches test={this.state.testData} />}/>
+          <Route path="/analysis/" component={Analysis}/>
+
+        </>
+      </Router>        
     )
   }
-
 
 }

@@ -1,3 +1,5 @@
+// may not need this anymore.
+
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Analysis from './Pages/Analysis';
@@ -22,7 +24,9 @@ export default function AppRouter () {
           </ul>
         </nav>    
 
-        {/* Routes here */}
+        <Route path="/" exact component={Table}/>
+        <Route path="/matches/" component={Matches}/>
+        <Route path="/analysis/" component={Analysis}/>
 
       </React.Fragment>
     </Router>

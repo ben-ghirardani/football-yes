@@ -1,3 +1,5 @@
-export default function analysis () {
-  return <div>Analysis</div>
+import React from 'react';
+
+export default function analysis (props) {
+  return <div>Analysis From Component</div>
 }

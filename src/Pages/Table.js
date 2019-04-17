@@ -1,3 +1,5 @@
-export default function table () {
-  return <div>Table</div>
+import React from 'react';
+
+export default function table (props) {
+  return <div>Text from component</div>
 }
