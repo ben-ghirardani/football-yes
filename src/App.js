@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import authToken from './AuthToken';
-// import AppRouter from './AppRouter';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Analysis from './Pages/Analysis';
-import Matches from './Pages/Matches';
-import Table from './Pages/Table';
+import Analysis from './Pages/Analysis/Analysis.js';
+import Matches from './Pages/Matches/Matches.js';
+import Table from './Pages/Table/Table.js';
 
 export default class App extends Component {
 
