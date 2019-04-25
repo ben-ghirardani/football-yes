@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import authToken from './AuthToken';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Analysis from './Pages/Analysis/Analysis.js';
-import Matches from './Pages/Matches/Matches.js';
-import Table from './Pages/Table/Table.js';
+import Analysis from './pages/analysis/Analysis.js';
+import Matches from './pages/matches/Matches';
+import Table from './pages/table/Table';
 
 export default class App extends Component {
 
@@ -14,8 +14,7 @@ export default class App extends Component {
         teams: null,
         matches: null,
         loading: true,
-        error: false,
-        testData: "Did we pass it? YES! YES WE DID!!!"
+        error: false
       }
         this.fetchStandings = this.fetchStandings.bind(this);
         this.fetchTeams = this.fetchTeams.bind(this);
