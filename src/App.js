@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Analysis from './pages/analysis/Analysis.js';
 import Matches from './pages/matches/Matches';
 import Table from './pages/table/Table';
-import Background from './pages/background/Background';
+import './App.css'
 
 export default class App extends Component {
 
@@ -52,22 +52,19 @@ export default class App extends Component {
 
   render() {
     return (
-
-      // can everything in <Router/> be moved into it's own component and imported in, so it would just be e.g. <MyRoutes/>
+      // seperate file for the routes
       <Router>
         <>
           <nav>
-            <ul>
-              <li>
-                <Link to="/">Table</Link>
-              </li>
-              <li>
-                <Link to="/matches/">Matches</Link>
-              </li>  
-              <li>
-                <Link to="/analysis/">Analysis</Link>
-              </li>
-            </ul>
+            <div>
+              <Link className="table-link" to="/">Table</Link>
+            </div>
+            <div>
+              <Link to="/matches/">Matches</Link>
+            </div>
+            <div>
+              <Link to="/analysis/">Analysis</Link>
+            </div>
           </nav>    
 
           <Route path="/" exact render={() => <Table standings={this.state.standings} />} />
