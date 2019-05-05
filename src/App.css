@@ -1,4 +1,17 @@
 .table-link {
   color: blueviolet;
-  border: 1px black;
+}
+
+.link-div {
+  height: 100%;
+  width: 33%;
+  border: 1px solid red;
+}
+
+.nav {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: stretch;
 }

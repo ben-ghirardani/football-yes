@@ -52,20 +52,20 @@ export default class App extends Component {
 
   render() {
     return (
-      // seperate file for the routes
+      // seperate file for the routes -> <Routes/>? Avoids having to style the App file.
       <Router>
         <>
-          <nav>
-            <div>
-              <Link className="table-link" to="/">Table</Link>
-            </div>
-            <div>
-              <Link to="/matches/">Matches</Link>
-            </div>
-            <div>
-              <Link to="/analysis/">Analysis</Link>
-            </div>
-          </nav>    
+            <nav className="nav">
+              <div className="link-div">
+                <Link className="table-link" to="/">Table</Link>
+              </div>
+              <div className="link-div">
+                <Link to="/matches/">Matches</Link>
+              </div>
+              <div className="link-div">
+                <Link to="/analysis/">Analysis</Link>
+              </div>
+            </nav>    
 
           <Route path="/" exact render={() => <Table standings={this.state.standings} />} />
           <Route path="/matches/" render={() => <Matches matches={this.state.matches} />}/>
