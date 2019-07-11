@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './header.css'
 
-export default function header (props) {
-  return 
+// sits inside Table with Body
+export default class Header extends Component {
+
+  render() {
+    return (
       <tr>
         <th>Pos.</th>
         <th>Team</th>
@@ -15,4 +18,7 @@ export default function header (props) {
         <th>GD</th>
         <th>Pts</th>
       </tr>
+    )
+  }
+
 }
