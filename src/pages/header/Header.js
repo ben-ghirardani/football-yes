@@ -6,7 +6,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <tr>
+      <tr className="table-row">
         <th>Pos.</th>
         <th>Team</th>
         <th>MP</th>
