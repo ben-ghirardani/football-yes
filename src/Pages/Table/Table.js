@@ -9,11 +9,14 @@ export default class Table extends Component {
 
   constructor(props){
     super(props);
+    this.createRows = this.createRows.bind(this);
   }
 
   // create a for loop to iterate throuh object, creating a <Body/> for each item.
-  createRows(object) {
-    
+  createRows(tableData) {
+    for (let i = 0; i < tableData.length; i++) {
+      return <Body/>
+    }
   }
 
   render() {
@@ -21,8 +24,8 @@ export default class Table extends Component {
       <table>
         <tbody>
           <Header/>
-            
-          {/* <Body/> */}
+          {/* is this happening before the data has been fetched? */}
+            {this.createRows(this.props.standings.standings[0].table)}
         </tbody>
       </table>
     )
