@@ -24,8 +24,10 @@ export default class Table extends Component {
       <table>
         <tbody>
           <Header/>
-          {/* is this happening before the data has been fetched? */}
-            {this.createRows(this.props.standings.standings[0].table)}
+
+            {/* create a function that loops through standings and creates a table row for each */}
+
+            {/* {this.createRows(this.props.standings.standings[0].table)} */}
         </tbody>
       </table>
     )
