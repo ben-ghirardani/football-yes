@@ -24,6 +24,9 @@ export default class AppRouter extends Component {
             </nav>    
 
           <Route path="/" exact render={() => <Table standings={this.props.standings}/>} />
+
+          {/* can I have a ternery statement here? If state is!null render component, else fetch data */}
+
           <Route path="/matches/" render={() => <Matches />}/>
           <Route path="/analysis/" render={() => <Analysis /> } />
         </>
@@ -32,6 +35,3 @@ export default class AppRouter extends Component {
   }
 
 }
-
-// standings={this.props.standings}
-// matches={this.state.matches}
