@@ -11,18 +11,6 @@ export default class AppRouter extends Component {
     return (
       <Router>
         <>
-            <nav className="nav">
-              <div className="link-div">
-                <Link className="table-link" to="/">Table</Link>
-              </div>
-              <div className="link-div">
-                <Link to="/matches/">Matches</Link>
-              </div>
-              <div className="link-div">
-                <Link to="/analysis/">Analysis</Link>
-              </div>
-            </nav>    
-
           <Route path="/" exact render={() => <Table standings={this.props.standings}/>} />
 
           {/* can I have a ternery statement here? If state is!null render component, else fetch data */}
