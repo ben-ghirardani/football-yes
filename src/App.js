@@ -15,24 +15,19 @@ export default class App extends Component {
         loading: true,
         error: false,
       }
-        // this.fetchStandings = this.fetchStandings.bind(this);
-        // this.fetchTeams = this.fetchTeams.bind(this);
-        // this.fetchMatches = this.fetchMatches.bind(this);
   }
 
+  // is this complete? errors?
   async componentDidMount() {
-    const response = await fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}});
-    const data = await response.json();
-    this.setState({standings: data, loading: false});
+    if (this.state.standings === null) {
+      const response = await fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}});
+      const data = await response.json();
+      this.setState({standings: data, loading: false});
+    } else {
+      return
+    }
   }
 
-
-// *** create a new component - async getData(url, state) if state !null return else {fetch(url)}
-// call it in AppRouter
-
-
-
-  // add a console log to notify when data has been fetched, to keep an eye on how it's working?
   // fetchStandings() {
   //   fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}} )
   //     .then(response => response.json())
@@ -57,9 +52,8 @@ export default class App extends Component {
   render() {
     return (
       <>
-        {this.state.loading ? <Loading/> : <AppRouter standings={this.state.standings}/>}
+        {this.state.loading ? <Loading/> : <AppRouter standings={this.state.standings} matches={this.state.matches}/>}
       </>
-     
     )
   }
 

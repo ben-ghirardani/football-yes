@@ -19,7 +19,10 @@ export default class Body extends Component {
 
   render() {
         return(
-            <tr>
+            <tr 
+              className="table-row"
+              onClick={this.goToFixtures}
+            >
                 <td>{this.props.position}</td>
                 <td>{this.props.team}</td>
                 <td>{this.props.played}</td>
@@ -30,11 +33,6 @@ export default class Body extends Component {
                 <td>{this.props.ga}</td>
                 <td>{this.props.gd}</td>
                 <td>{this.props.points}</td>
-
-                {/* create an onClick for below. Takes team details, populates state, opens fixtures list with that team's details */}
-                <td
-                  onClick={this.goToFixtures}
-                >go</td>
             </tr>
         )
     }
