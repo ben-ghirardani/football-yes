@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Link } from "react-router-dom";
-// import teamNameEditor from '.../TeamNameEditor';
+import { withRouter } from 'react-router-dom';
 import './body.css'
 
 // sits inside Table with Header
 // accepts a single row of table data. 
-export default class Body extends Component {
+class Body extends Component {
 
   constructor(props) {
     super(props);
@@ -13,10 +12,13 @@ export default class Body extends Component {
     this.teamNameEditor = this.teamNameEditor.bind(this);
   }
 
-  // needs to populate state in App with team identifier, when rendering Matches use this identifier to pull fixtures for that team
+  // using react-router-dom, import withRouter, wrap the export of class in withRouter, 
+  // can then call .push on the history object
+  // https://stackoverflow.com/questions/42701129/how-to-push-to-history-in-react-router-v4
   goToFixtures () {
     let team = this.props.team
     console.log(team)
+    this.props.history.push("/matches");
   }
 
   teamNameEditor (name) {
@@ -27,10 +29,10 @@ export default class Body extends Component {
 
   render() {
         return(
-            <tr 
-              className="table-row"
-              onClick={this.goToFixtures}
-            >
+          <tr 
+            className="table-row"
+            onClick={this.goToFixtures}
+          >
                 <td>{this.props.position}</td>
                 <td>{this.teamNameEditor(this.props.team)}</td>
                 <td>{this.props.played}</td>
@@ -41,10 +43,10 @@ export default class Body extends Component {
                 <td>{this.props.ga}</td>
                 <td>{this.props.gd}</td>
                 <td>{this.props.points}</td>
-            </tr>
+           </tr> 
         )
     }
 
 }
 
-                // <Link to="/matches/"><td>Go</td></Link>
+export default withRouter(Body);

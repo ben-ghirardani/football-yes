@@ -9,20 +9,50 @@ export default class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
+        currentTeam: null,
+        error: false,
+        loading: true,
+        matches: null,
         standings: null,
         teams: null,
-        matches: null,
-        loading: true,
-        error: false,
       }
+      this.fetchStandings = this.fetchStandings.bind(this);
+      this.fetchMatches = this.fetchMatches.bind(this);
+      this.fetchTeams = this.fetchTeams.bind(this);
   }
 
-  // is this complete? errors?
-  async componentDidMount() {
+  componentDidMount() {
+    this.fetchStandings();
+    this.fetchMatches();
+    this.fetchTeams();
+  }
+
+    // is this complete? error handling?
+  async fetchStandings() {
     if (this.state.standings === null) {
       const response = await fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}});
       const data = await response.json();
       this.setState({standings: data, loading: false});
+    } else {
+      return
+    }
+  }
+
+  async fetchMatches() {
+    if (this.state.matches === null) {
+      const response = await fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken}});
+      const data = await response.json();
+      this.setState({matches: data});
+    } else {
+      return
+    }
+  }
+
+  async fetchTeams() {
+    if (this.state.teams === null) {
+      const response = await fetch(`http://api.football-data.org/v2/competitions/2021/teams`, {headers : {'X-Auth-Token': authToken}});
+      const data = await response.json();
+      this.setState({teams: data});
     } else {
       return
     }
@@ -33,26 +63,19 @@ export default class App extends Component {
   //     .then(response => response.json())
   //     .then(data => this.setState({standings: data, loading: false}))
   //     .catch(error => this.setState({ error: false }));
-  // }		
-  
-  // fetchTeams() {
-  //   fetch(`http://api.football-data.org/v2/competitions/2021/teams`, {headers : {'X-Auth-Token': authToken}} )
-  //     .then(response => response.json())
-  //     .then(data => this.setState({teams: data}))
-  //     .catch(error => this.setState({ error: false }));
-  // }		
-  
-  // fetchMatches() {
-  //   fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken}} )
-  //     .then(response => response.json())
-  //     .then(data => this.setState({matches: data}))
-  //     .catch(error => this.setState({ error: false }));
-  // }
+  // }	
 
   render() {
     return (
       <>
-        {this.state.loading ? <Loading/> : <AppRouter standings={this.state.standings} matches={this.state.matches}/>}
+        {
+          this.state.loading ? <Loading/> : 
+            <AppRouter 
+              currentTeam={this.state.currentTeam}
+              matches={this.state.matches}
+              standings={this.state.standings}
+            />
+        }
       </>
     )
   }

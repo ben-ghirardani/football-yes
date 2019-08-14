@@ -17,7 +17,6 @@ export default class Header extends Component {
         <th>GA</th>
         <th>GD</th>
         <th>Pts</th>
-        <th>Fixtures</th>
       </tr>
     )
   }
