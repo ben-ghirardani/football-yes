@@ -25,6 +25,7 @@ export default class Table extends Component {
               ga={item.goalsAgainst}
               gd={item.goalDifference}
               points={item.points}
+              updateCurrentTeam={this.props.updateCurrentTeam}
             />
           )}
         </tbody>

@@ -19,6 +19,7 @@ export default class App extends Component {
       this.fetchStandings = this.fetchStandings.bind(this);
       this.fetchMatches = this.fetchMatches.bind(this);
       this.fetchTeams = this.fetchTeams.bind(this);
+      this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +66,10 @@ export default class App extends Component {
   //     .catch(error => this.setState({ error: false }));
   // }	
 
+  updateCurrentTeam(team) {
+    this.setState({currentTeam: team});
+  }
+
   render() {
     return (
       <>
@@ -74,6 +79,7 @@ export default class App extends Component {
               currentTeam={this.state.currentTeam}
               matches={this.state.matches}
               standings={this.state.standings}
+              updateCurrentTeam={this.updateCurrentTeam}
             />
         }
       </>

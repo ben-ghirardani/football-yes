@@ -18,6 +18,7 @@ class Body extends Component {
   goToFixtures () {
     let team = this.props.team
     console.log(team)
+    this.props.updateCurrentTeam(team);
     this.props.history.push("/matches");
   }
 
