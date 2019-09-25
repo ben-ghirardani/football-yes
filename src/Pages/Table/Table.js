@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './table.css'
 import TableHeader from '../table_header/tableHeader.js'
 import Body from '../body/Body.js'
+import Header from '../header/Header.js'
 
-// takes in Header and Body
+// takes in TableHeader and Body
 // loops through props and creates a <Body/> for each line of data
 export default class Table extends Component {
 
