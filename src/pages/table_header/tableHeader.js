@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './header.css'
+import './tableHeader.css'
 
 // sits inside Table with Body
-export default class Header extends Component {
+export default class TableHeader extends Component {
 
   render() {
     return (

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './table.css'
-import Header from '../header/Header.js'
+import TableHeader from '../table_header/tableHeader.js'
 import Body from '../body/Body.js'
 
 // takes in Header and Body
@@ -11,7 +11,7 @@ export default class Table extends Component {
     return(
       <table>
         <tbody>
-          <Header/>
+          <TableHeader/>
           {this.props.standings.standings[0].table.map((item, i) =>
             <Body
               key={i}
