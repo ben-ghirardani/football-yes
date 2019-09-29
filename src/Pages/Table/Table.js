@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './table.css'
 import TableHeader from '../table_header/tableHeader.js'
 import Body from '../body/Body.js'
-import Header from '../header/Header.js'
 
 // takes in TableHeader and Body
 // loops through props and creates a <Body/> for each line of data
@@ -35,17 +34,3 @@ export default class Table extends Component {
   }
 
 }
-
-// puller from Router, can split the links out to other components
-
-// {/* <nav className="nav">
-//               <div className="link-div">
-//                 <Link className="table-link" to="/">Table</Link>
-//               </div>
-//               <div className="link-div">
-//                 <Link to="/matches/">Matches</Link>
-//               </div>
-//               <div className="link-div">
-//                 <Link to="/analysis/">Analysis</Link>
-//               </div>
-//             </nav>     */}

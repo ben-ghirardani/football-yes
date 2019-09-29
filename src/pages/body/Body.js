@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './body.css'
+import './body.css';
 
 // sits inside Table with TableHeader
 // accepts a single row of table data. 
@@ -30,8 +30,7 @@ class Body extends Component {
 
   render() {
         return(
-          <tr 
-            className="table-row"
+          <tr
             onClick={this.goToFixtures}
           >
                 <td>{this.props.position}</td>

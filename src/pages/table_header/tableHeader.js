@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './tableHeader.css'
+import './tableHeader.css';
 
 // sits inside Table with Body
 export default class TableHeader extends Component {
 
   render() {
     return (
-      <tr className="table-row">
+      <tr>
         <th>Pos.</th>
         <th>Team</th>
         <th>MP</th>

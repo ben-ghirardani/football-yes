@@ -1,17 +1,14 @@
-.table-link {
-  color: blueviolet;
-}
-
-.link-div {
+/* page wasn't taking up full screen so added height 100% to body and html */
+body, html {
   height: 100%;
-  width: 33%;
-  border: 1px solid red;
+  margin: 0px;
+  padding: 0px;
 }
 
-.nav {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: stretch;
+.app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }

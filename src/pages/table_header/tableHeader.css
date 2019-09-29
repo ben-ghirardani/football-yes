@@ -1,3 +1,7 @@
-.table-row {
+tr {
   border: 1px solid black;
+}
+
+th {
+  border: 2px dotted purple;
 }

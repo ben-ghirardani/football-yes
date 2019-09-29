@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import authToken from './AuthToken';
 import Loading from './pages/loading/Loading';
 import AppRouter from './AppRouter';
+import Background from './pages/background/Background.js'
 import './App.css'
 
 export default class App extends Component {
@@ -72,17 +73,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <>
-        {
-          this.state.loading ? <Loading/> : 
-            <AppRouter 
-              currentTeam={this.state.currentTeam}
-              matches={this.state.matches}
-              standings={this.state.standings}
-              updateCurrentTeam={this.updateCurrentTeam}
-            />
-        }
-      </>
+      <div className="app">
+        <Background>
+          {
+            this.state.loading ? <Loading/> : 
+              <AppRouter 
+                currentTeam={this.state.currentTeam}
+                matches={this.state.matches}
+                standings={this.state.standings}
+                updateCurrentTeam={this.updateCurrentTeam}
+              />
+          }
+        </Background>
+      </div>
     )
   }
 
