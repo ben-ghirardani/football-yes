@@ -17,7 +17,8 @@ export default class AppRouter extends Component {
               <Route path="/" exact render={() => <Table 
                                                     standings={this.props.standings}
                                                     updateCurrentTeam={this.props.updateCurrentTeam}  
-                                                  />} />
+                                                  />
+                                                  } />
               <Route path="/matches/" render={() => <Matches
                                                       currentTeam={this.props.currentTeam} 
                                                       matches={this.props.matches}/>}
