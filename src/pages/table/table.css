@@ -19,6 +19,7 @@ table {
   /* opacity: 0.5; */
   color: black;
   border: 1px solid white;
+  /* position: absolute; */
 }
 
 tbody {

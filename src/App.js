@@ -72,7 +72,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <>
         {
           this.state.loading ? <Loading/> : 
             <AppRouter 
@@ -82,7 +82,7 @@ export default class App extends Component {
               updateCurrentTeam={this.updateCurrentTeam}
             />
         }
-      </div>
+      </>
     )
   }
 

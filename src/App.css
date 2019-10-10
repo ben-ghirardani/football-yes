@@ -5,8 +5,19 @@ body, html {
   padding: 0px;
 }
 
+
+/* should not need styling for App, it is logic only */
+
 .app {
-  position: fixed;
+  /* background: url('./images/GrassBackground.png') center; */
+  /* background-size: cover; */
+  display: grid;
+  /* grid-template-columns: repeat(10, 1fr); */
+  /* grid-template-rows: repeat(4, 1fr); */
+  /* height: 100%; */
+  /* width: 100%; */
+
+  /* position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -14,4 +25,5 @@ body, html {
   background-image: url("./images/GrassBackground.png");
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 0; */
 }
