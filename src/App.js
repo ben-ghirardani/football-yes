@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import authToken from './AuthToken';
-import Loading from './pages/loading/Loading';
+import Loading from './components/loading/Loading';
 import AppRouter from './AppRouter';
 import './App.css'
 

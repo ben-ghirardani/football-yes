@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './table.css'
+import './Table.css'
 import TableHeader from '../table_header/TableHeader.js'
 import Body from '../body/Body.js' 
 

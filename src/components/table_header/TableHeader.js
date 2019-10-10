@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './tableHeader.css';
+import './TableHeader.css';
 
 // sits inside Table with Body
 export default class TableHeader extends Component {

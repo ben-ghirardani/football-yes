@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './body.css';
+import './Body.css';
 
 // sits inside Table with TableHeader
 // accepts a single row of table data. 

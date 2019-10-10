@@ -1,4 +1,7 @@
 /* page wasn't taking up full screen so added height 100% to body and html */
+
+/* Is this still required if App is no longer presentational? */
+
 body, html {
   height: 100%;
   margin: 0px;
@@ -8,10 +11,10 @@ body, html {
 
 /* should not need styling for App, it is logic only */
 
-.app {
+/* .app { */
   /* background: url('./images/GrassBackground.png') center; */
   /* background-size: cover; */
-  display: grid;
+  /* display: grid; */
   /* grid-template-columns: repeat(10, 1fr); */
   /* grid-template-rows: repeat(4, 1fr); */
   /* height: 100%; */
@@ -26,4 +29,4 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 0; */
-}
+/* } */
