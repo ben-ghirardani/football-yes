@@ -1,0 +1,9 @@
+.main-page {
+  /* background: url("../images/GrassBackground.png") center; */
+  /* background: url("/src/images/GrassBackground.png") center; */
+  background-color: aqua;
+  background-image: url(".../images/GrassBackground.png");
+  background-size: cover;
+  min-height: 100%;
+  /* display: grid; */
+}

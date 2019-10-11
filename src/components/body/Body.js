@@ -15,11 +15,14 @@ class Body extends Component {
   // using react-router-dom, import withRouter, wrap the export of class in withRouter, 
   // can then call .push on the history object
   // https://stackoverflow.com/questions/42701129/how-to-push-to-history-in-react-router-v4
+
+  // *** applies to v5? ***
+
   goToFixtures () {
     let team = this.props.team
     console.log(team)
     this.props.updateCurrentTeam(team);
-    this.props.history.push("/matches");
+    this.props.history.push("/fixtures");
   }
 
   teamNameEditor (name) {
@@ -37,7 +40,7 @@ class Body extends Component {
                 <td>{this.teamNameEditor(this.props.team)}</td>
                 <td>{this.props.played}</td>
                 <td>{this.props.won}</td>
-                <td>{this.props.drawn}</td>
+                <td>{this.props.draw}</td>
                 <td>{this.props.lost}</td>
                 <td>{this.props.gf}</td>
                 <td>{this.props.ga}</td>

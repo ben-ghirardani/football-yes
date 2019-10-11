@@ -19,7 +19,7 @@ export default class Table extends Component {
               team={item.team.name}
               played={item.playedGames}
               won={item.won}
-              drawn={item.drawn}
+              draw={item.draw}
               lost={item.lost}
               gf={item.goalsFor}
               ga={item.goalsAgainst}
