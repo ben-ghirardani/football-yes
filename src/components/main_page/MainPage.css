@@ -1,9 +1,8 @@
 .main-page {
-  /* background: url("../images/GrassBackground.png") center; */
-  /* background: url("/src/images/GrassBackground.png") center; */
-  background-color: aqua;
-  background-image: url(".../images/GrassBackground.png");
-  background-size: cover;
+  height: 100%;
+  width: 100%;
   min-height: 100%;
-  /* display: grid; */
-}
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0px, 200px) minmax(750px, auto) minmax(0px, 200px);
+} 

@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import Table from '../table/Table.js';
+// import Table from '../table/Table.js';
 import './MainPage.css'
+import OpaqueDiv from '../opaque_div/OpaqueDiv.js';
 
 export default class MainPage extends Component {
-
-  // constructor(props) {
-  //   super(props);
-  // }
 
   render() {
     return(
       <div className="main-page">
-        <Table
+        <OpaqueDiv
           standings={this.props.standings}
           updateCurrentTeam={this.props.updateCurrentTeam}
         />

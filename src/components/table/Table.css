@@ -15,11 +15,8 @@ table {
   max-width: 50%;
   margin-top: 5%;
   max-height: 70%;
-  /* background-color: black; */
-  /* opacity: 0.5; */
-  color: black;
+  color: white;
   border: 1px solid white;
-  /* position: absolute; */
 }
 
 tbody {

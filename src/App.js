@@ -75,7 +75,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="app">
         {
           this.state.loading ? <Loading/> : 
             <>
@@ -103,7 +103,7 @@ export default class App extends Component {
           
       </> 
         }
-      </>
+      </div>
     )
   }
 

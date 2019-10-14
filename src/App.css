@@ -1,6 +1,4 @@
-/* page wasn't taking up full screen so added height 100% to body and html */
-
-/* Is this still required if App is no longer presentational? */
+/* body and html set to 100% to avoid limiting children */
 
 body, html {
   height: 100%;
@@ -9,25 +7,14 @@ body, html {
   padding: 0px;
 }
 
-
-/* should not need styling for App, it is logic only */
-
-/* .app { */
-  /* background: url('./images/GrassBackground.png') center; */
-  /* background-size: cover; */
-  /* display: grid; */
-  /* grid-template-columns: repeat(10, 1fr); */
-  /* grid-template-rows: repeat(4, 1fr); */
-  /* height: 100%; */
-  /* width: 100%; */
-
-  /* position: fixed;
-  top: 0;
-  left: 0;
+.app {
   height: 100%;
   width: 100%;
+  overflow: hidden;
   background-image: url("./images/GrassBackground.png");
-  background-repeat: no-repeat;
   background-size: cover;
-  z-index: 0; */
-/* } */
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+
+}
