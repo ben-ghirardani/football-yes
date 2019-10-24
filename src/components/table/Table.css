@@ -1,22 +1,8 @@
-/* table {
-  position: absolute;
-  height: 75%;
-  width: 50%;
-  border-collapse: collapse;
-  left: 50%;
-  top: 50%;
-  margin-left: -50%;
-  margin-top: -75%;
-  border: 2px solid darkorange;
-} */
-
 table {
   margin: 0 auto;
-  max-width: 50%;
   margin-top: 5%;
-  max-height: 70%;
-  color: white;
-  border: 1px solid white;
+  color: black;
+  border: 1px solid black;
 }
 
 tbody {

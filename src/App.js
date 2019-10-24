@@ -4,7 +4,6 @@ import Loading from './components/loading/Loading';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import MainPage from './components/main_page/MainPage.js'
 import Matches from './components/matches/Matches.js'
-import Header from './components/header/Header.js'
 import './App.css'
 
 export default class App extends Component {
@@ -79,7 +78,6 @@ export default class App extends Component {
         {
           this.state.loading ? <Loading/> : 
             <>
-          <Header/>
           <Router>
             <>
               <Route path="/" exact render=
@@ -108,20 +106,3 @@ export default class App extends Component {
   }
 
 }
-
-// Original Version
-// render() {
-//     return (
-//       <>
-//         {
-//           this.state.loading ? <Loading/> : 
-//             <AppRouter 
-//               currentTeam={this.state.currentTeam}
-//               matches={this.state.matches}
-//               standings={this.state.standings}
-//               updateCurrentTeam={this.updateCurrentTeam}
-//             />
-//         }
-//       </>
-//     )
-//   }

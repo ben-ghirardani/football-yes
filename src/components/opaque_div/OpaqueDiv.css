@@ -1,8 +1,9 @@
 .opaque-div {
-  /* height: 100%; */
-  /* width: 100%; */
-  background-color: black;
-  opacity: 0.70;
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
   grid-column: 2;
   display: grid;
+  /* can I split text-align? left for text, center for numbers */
+  text-align: left;
 }

@@ -1,8 +1,11 @@
 .main-page {
+  background-image: url("../images/GrassBackground.png");
   height: 100%;
   width: 100%;
   min-height: 100%;
   min-width: 100%;
   display: grid;
   grid-template-columns: minmax(0px, 200px) minmax(750px, auto) minmax(0px, 200px);
+  grid-template-rows: 1fr 9fr;
+  text-align: center;
 } 
