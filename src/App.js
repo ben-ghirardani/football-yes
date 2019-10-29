@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import authToken from './AuthToken';
 import Loading from './components/loading/Loading';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+// import { BrowserRouter as Router, Route} from 'react-router-dom';
 import MainPage from './components/main_page/MainPage.js'
-import Matches from './components/matches/Matches.js'
+// import Matches from './components/matches/Matches.js'
 import './App.css'
 
 export default class App extends Component {
@@ -72,38 +72,53 @@ export default class App extends Component {
     this.setState({currentTeam: team});
   }
 
-  render() {
+    render() {
     return (
       <div className="app">
         {
           this.state.loading ? <Loading/> : 
-            <>
-          <Router>
-            <>
-              <Route path="/" exact render=
-                {() => 
-                  <MainPage
-                    standings={this.state.standings}
-                    updateCurrentTeam={this.updateCurrentTeam} 
-                  />
-                }
-              />
-              <Route path="/fixtures/" render=
-                {() => 
-                  <Matches
-                    currentTeam={this.state.currentTeam} 
-                    matches={this.state.matches}
-                  />
-                }
-              />
-            </>
-          </Router>
-          </>
+          <MainPage
+            standings={this.state.standings}
+            updateCurrentTeam={this.updateCurrentTeam}
+            currentTeam={this.state.currentTeam}
+            matches={this.state.matches}
+          />
         }
       </div>
     )
   }
 
+  // render() {
+  //   return (
+  //     <div className="app">
+  //       {
+  //         this.state.loading ? <Loading/> : 
+  //           <>
+  //         <Router>
+  //           <>
+  //             <Route path="/" exact render=
+  //               {() => 
+  //                 <MainPage
+  //                   standings={this.state.standings}
+  //                   updateCurrentTeam={this.updateCurrentTeam} 
+  //                 />
+  //               }
+  //             />
+  //             <Route path="/fixtures/" render=
+  //               {() => 
+  //                 <Matches
+  //                   currentTeam={this.state.currentTeam} 
+  //                   matches={this.state.matches}
+  //                 />
+  //               }
+  //             />
+  //           </>
+  //         </Router>
+  //         </>
+  //       }
+  //     </div>
+  //   )
+  // }
+
 }
 
-// render Mainpage here, pass props in, then do the routing in Main Page, to save creating two identical versions of MainPage
