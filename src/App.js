@@ -98,11 +98,12 @@ export default class App extends Component {
               />
             </>
           </Router>
-          
-      </> 
+          </>
         }
       </div>
     )
   }
 
 }
+
+// render Mainpage here, pass props in, then do the routing in Main Page, to save creating two identical versions of MainPage

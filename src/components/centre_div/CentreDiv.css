@@ -1,9 +1,9 @@
-.opaque-div {
+.centre-div {
   background-color: white;
   border-left: 1px solid black;
   border-right: 1px solid black;
   grid-column: 2;
   display: grid;
-  /* can I split text-align? left for text, center for numbers */
+  /* can I split text-align? left for text, center for numbers? This would be likely be on table */
   text-align: left;
 }

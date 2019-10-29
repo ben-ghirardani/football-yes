@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './MainPage.css'
-import OpaqueDiv from '../opaque_div/OpaqueDiv.js';
+import CentreDiv from '../centre_div/CentreDiv.js';
 import Header from '../header/Header.js';
 
 export default class MainPage extends Component {
@@ -9,7 +9,7 @@ export default class MainPage extends Component {
     return(
       <div className="main-page">
         <Header/>
-        <OpaqueDiv
+        <CentreDiv
           standings={this.props.standings}
           updateCurrentTeam={this.props.updateCurrentTeam}
         />
