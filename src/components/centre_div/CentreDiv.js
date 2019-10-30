@@ -11,40 +11,28 @@ export default class OpaqueDiv extends Component {
   render() {
     return(
       <div className="centre-div">
-                   <Router>
-             <>
-               <Route path="/" exact render=
-                {() => 
-                  <Table
-                    standings={this.props.standings}
-                    updateCurrentTeam={this.props.updateCurrentTeam} 
-                  />
-                }
-              />
-              <Route path="/fixtures/" render=
-                {() => 
-                  <Matches
-                    currentTeam={this.props.currentTeam} 
-                    matches={this.props.matches}
-                  />
-                }
-              />
-            </>
-          </Router>
+        <Router>
+          <>
+            <Route path="/" exact render=
+              {() => 
+                <Table
+                  standings={this.props.standings}
+                  updateCurrentTeam={this.props.updateCurrentTeam} 
+                />
+              }
+            />
+            <Route path="/fixtures/" render=
+              {() => 
+                <Matches
+                  currentTeam={this.props.currentTeam} 
+                  matches={this.props.matches}
+                />
+              }
+            />
+          </>
+        </Router>
       </div>
     )
   }
-
-
-  // render() {
-  //   return(
-  //     <div className="centre-div">
-  //       <Table
-  //         standings={this.props.standings}
-  //         updateCurrentTeam={this.props.updateCurrentTeam}
-  //       />
-  //     </div>
-  //   )
-  // }
 
 }

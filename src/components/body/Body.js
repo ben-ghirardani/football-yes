@@ -20,8 +20,9 @@ class Body extends Component {
 
   goToFixtures () {
     let team = this.props.team
-    console.log(team)
-    this.props.updateCurrentTeam(team);
+    let id = this.props.id
+    console.log(team, id)
+    this.props.updateCurrentTeam(team, id);
     this.props.history.push("/fixtures");
   }
 
@@ -36,17 +37,17 @@ class Body extends Component {
           <tr
             onClick={this.goToFixtures}
           >
-                <td>{this.props.position}</td>
-                <td>{this.teamNameEditor(this.props.team)}</td>
-                <td>{this.props.played}</td>
-                <td>{this.props.won}</td>
-                <td>{this.props.draw}</td>
-                <td>{this.props.lost}</td>
-                <td>{this.props.gf}</td>
-                <td>{this.props.ga}</td>
-                <td>{this.props.gd}</td>
-                <td>{this.props.points}</td>
-           </tr> 
+            <td>{this.props.position}</td>
+            <td>{this.teamNameEditor(this.props.team)}</td>
+            <td>{this.props.played}</td>
+            <td>{this.props.won}</td>
+            <td>{this.props.draw}</td>
+            <td>{this.props.lost}</td>
+            <td>{this.props.gf}</td>
+            <td>{this.props.ga}</td>
+            <td>{this.props.gd}</td>
+            <td>{this.props.points}</td>
+          </tr> 
         )
     }
 

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import authToken from './AuthToken';
 import Loading from './components/loading/Loading';
-// import { BrowserRouter as Router, Route} from 'react-router-dom';
 import MainPage from './components/main_page/MainPage.js'
-// import Matches from './components/matches/Matches.js'
 import './App.css'
 
 export default class App extends Component {
@@ -12,6 +10,7 @@ export default class App extends Component {
     super(props);
       this.state = {
         currentTeam: null,
+        currentTeamID: null,
         error: false,
         loading: true,
         matches: null,
@@ -68,8 +67,9 @@ export default class App extends Component {
   //     .catch(error => this.setState({ error: false }));
   // }	
 
-  updateCurrentTeam(team) {
+  updateCurrentTeam(team, id) {
     this.setState({currentTeam: team});
+    this.setState({currentTeamID: id})
   }
 
     render() {
@@ -86,39 +86,7 @@ export default class App extends Component {
         }
       </div>
     )
-  }
-
-  // render() {
-  //   return (
-  //     <div className="app">
-  //       {
-  //         this.state.loading ? <Loading/> : 
-  //           <>
-  //         <Router>
-  //           <>
-  //             <Route path="/" exact render=
-  //               {() => 
-  //                 <MainPage
-  //                   standings={this.state.standings}
-  //                   updateCurrentTeam={this.updateCurrentTeam} 
-  //                 />
-  //               }
-  //             />
-  //             <Route path="/fixtures/" render=
-  //               {() => 
-  //                 <Matches
-  //                   currentTeam={this.state.currentTeam} 
-  //                   matches={this.state.matches}
-  //                 />
-  //               }
-  //             />
-  //           </>
-  //         </Router>
-  //         </>
-  //       }
-  //     </div>
-  //   )
-  // }
+    }
 
 }
 

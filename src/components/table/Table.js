@@ -17,6 +17,7 @@ export default class Table extends Component {
               key={i}
               position={item.position}
               team={item.team.name}
+              id={item.team.id}
               played={item.playedGames}
               won={item.won}
               draw={item.draw}
