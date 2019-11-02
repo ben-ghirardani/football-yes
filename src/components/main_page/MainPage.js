@@ -39,7 +39,10 @@ export default class MainPage extends Component {
           standings={this.props.standings}
           updateCurrentTeam={this.props.updateCurrentTeam}
           currentTeam={this.props.currentTeam}
+          currentTeamID={this.props.currentTeamID}
           matches={this.props.matches}
+          pullFixtureList={this.props.pullFixtureList}
+          updateTeamMatches={this.props.updateTeamMatches}
         />
       </div>
     )

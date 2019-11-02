@@ -11,6 +11,7 @@ export default class App extends Component {
       this.state = {
         currentTeam: null,
         currentTeamID: null,
+        teamMatches: null,
         error: false,
         loading: true,
         matches: null,
@@ -21,6 +22,8 @@ export default class App extends Component {
       this.fetchMatches = this.fetchMatches.bind(this);
       this.fetchTeams = this.fetchTeams.bind(this);
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
+      this.pullFixtureList = this.pullFixtureList.bind(this);
+      this.updateTeamMatches = this.updateTeamMatches.bind(this);
   }
 
   componentDidMount() {
@@ -29,7 +32,8 @@ export default class App extends Component {
     this.fetchTeams();
   }
 
-    // is this complete? error handling?
+    // ERROR HANDLING!
+    // destructure the results before updating state? Or just only pass what i need?
   async fetchStandings() {
     if (this.state.standings === null) {
       const response = await fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}});
@@ -72,6 +76,24 @@ export default class App extends Component {
     this.setState({currentTeamID: id})
   }
 
+  pullFixtureList(teamID, matches) {
+    let teamMatches = [];
+    matches.forEach(match => {
+      if(match.homeTeam.id === teamID || match.awayTeam.id === teamID) {
+        teamMatches.push(match);
+      }
+    });
+    console.log("home & away matches - ", teamMatches);
+    return teamMatches
+  }
+
+  updateTeamMatches(matches) {
+    this.setState({teamMatches: matches})
+  }
+
+
+
+
     render() {
     return (
       <div className="app">
@@ -81,7 +103,10 @@ export default class App extends Component {
             standings={this.state.standings}
             updateCurrentTeam={this.updateCurrentTeam}
             currentTeam={this.state.currentTeam}
+            currentTeamID={this.state.currentTeamID}
             matches={this.state.matches}
+            pullFixtureList={this.pullFixtureList}
+            updateTeamMatches={this.updateTeamMatches}
           />
         }
       </div>

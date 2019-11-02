@@ -23,6 +23,7 @@ class Body extends Component {
     let id = this.props.id
     console.log(team, id)
     this.props.updateCurrentTeam(team, id);
+    this.props.updateTeamMatches(this.props.pullFixtureList(id, this.props.matches.matches))
     this.props.history.push("/fixtures");
   }
 

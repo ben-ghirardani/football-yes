@@ -18,6 +18,11 @@ export default class OpaqueDiv extends Component {
                 <Table
                   standings={this.props.standings}
                   updateCurrentTeam={this.props.updateCurrentTeam} 
+                  pullFixtureList={this.props.pullFixtureList}
+                  currentTeam={this.props.currentTeam}
+                  currentTeamID={this.props.currentTeamID}
+                  matches={this.props.matches}
+                  updateTeamMatches={this.props.updateTeamMatches}
                 />
               }
             />
@@ -25,6 +30,7 @@ export default class OpaqueDiv extends Component {
               {() => 
                 <Matches
                   currentTeam={this.props.currentTeam} 
+                  currentTeamID={this.props.currentTeamID}
                   matches={this.props.matches}
                 />
               }
