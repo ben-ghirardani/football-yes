@@ -107,6 +107,7 @@ export default class App extends Component {
             matches={this.state.matches}
             pullFixtureList={this.pullFixtureList}
             updateTeamMatches={this.updateTeamMatches}
+            teamMatches={this.state.teamMatches}
           />
         }
       </div>

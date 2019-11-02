@@ -6,7 +6,7 @@ import Matches from '../matches/Matches.js';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import './CentreDiv.css'
 
-export default class OpaqueDiv extends Component {
+export default class CentreDiv extends Component {
 
   render() {
     return(
@@ -32,6 +32,7 @@ export default class OpaqueDiv extends Component {
                   currentTeam={this.props.currentTeam} 
                   currentTeamID={this.props.currentTeamID}
                   matches={this.props.matches}
+                  teamMatches={this.props.teamMatches}
                 />
               }
             />
