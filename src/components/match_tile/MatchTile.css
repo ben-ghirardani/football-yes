@@ -1,7 +1,15 @@
 .match-tile {
-  background-color: lightgreen;
-  width: 50%;
+  width: 70%;
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  border: 1px solid blue;
+}
+
+.teams-and-scores {
+  margin-left: 5%;
+  margin-right: auto;
+  border: 1px solid pink;
 }

@@ -1,3 +1,18 @@
-td {
-  border: 1px dotted purple;
+tr {
+  color: black;
+}
+
+tr:hover td {
+  background-color: #7FFF00;
+  /* border-radius: 25px; */
+}
+
+.right-table {
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.left-table {
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
 }

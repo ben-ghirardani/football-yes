@@ -32,14 +32,22 @@ export default class App extends Component {
     this.fetchTeams();
   }
 
+  // componentWillUnmount() {
+    // getting the following error when refreshing Matches. 
+    // Warning: Can't perform a React state update on an unmounted component. 
+    // This is a no-op, but it indicates a memory leak in your application. 
+    // To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+  // }
+
     // ERROR HANDLING!
-    // destructure the results before updating state? Or just only pass what i need?
+    // destructure the results before updating state? Or only pass what i need?
   async fetchStandings() {
     if (this.state.standings === null) {
       const response = await fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}});
       const data = await response.json();
       this.setState({standings: data, loading: false});
     } else {
+      // console.log("error with fetchStandings")
       return
     }
   }
@@ -50,6 +58,7 @@ export default class App extends Component {
       const data = await response.json();
       this.setState({matches: data});
     } else {
+      // console.log("error with fetchMatches")
       return
     }
   }
@@ -60,6 +69,7 @@ export default class App extends Component {
       const data = await response.json();
       this.setState({teams: data});
     } else {
+      // console.log("error with fetchTeams")
       return
     }
   }
@@ -90,9 +100,6 @@ export default class App extends Component {
   updateTeamMatches(matches) {
     this.setState({teamMatches: matches})
   }
-
-
-
 
     render() {
     return (

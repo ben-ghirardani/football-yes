@@ -12,6 +12,7 @@ it('renders without crashing', () => {
   expect(component).toMatchSnapshot();
 });
 
+// unfinished?
 describe('App fetch test', () => {
   it('fetches data from server', done => {
     const mockSuccessResponse = {};
@@ -23,7 +24,7 @@ describe('App fetch test', () => {
 
     const wrapper = shallow(<App/>);
 
-    expect(global.fetch).toHaveBeenCalledTimes(1);
+    expect(global.fetch).toHaveBeenCalledTimes(3);
 
     process.nextTick(() => {
       

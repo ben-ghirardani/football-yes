@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import './MatchTile.css';
 
-// does this need to be a class? Refactor to functional component.
-
 export default class MatchTile extends Component {
+
+  // write a function that returns the below if there are props, or a 'not yet played' placeholder if results are not in, 
+  // to avoid having 'null' in the results section. Use rest parameter to take in multiple variables?
+
+  constructor(props) {
+    super(props);
+    this.scoreCheck = this.scoreCheck.bind(this);
+  }
+
+  scoreCheck(score) {
+    if(score === null) {
+      return ""
+    } else {
+      return score
+    }
+  }
 
   render() {
     return(
@@ -13,12 +27,14 @@ export default class MatchTile extends Component {
           {this.props.date}
         </div>
 
-        <div className="home-team"> 
-          {this.props.homeTeam+" ("+this.props.homeHalfTimeScore+") "+this.props.homeFullTimeScore}
-        </div>
+        <br></br>
 
-        <div className="away-team"> 
-          {this.props.awayTeam+" ("+this.props.awayHalfTimeScore+") "+this.props.awayFullTimeScore}
+        <div className="teams-and-scores"> 
+          {
+            this.props.homeTeam+" ("+this.scoreCheck(this.props.homeHalfTimeScore)+") "+this.scoreCheck(this.props.homeFullTimeScore) +
+            " - " +
+            this.props.awayTeam+" ("+this.scoreCheck(this.props.awayHalfTimeScore)+") "+this.scoreCheck(this.props.awayFullTimeScore)
+          }
         </div>
 
       </div>

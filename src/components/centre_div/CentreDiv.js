@@ -1,10 +1,11 @@
-// does CentreDiv need to be its own component? Can this styling be part of main page?
-
 import React, { Component } from 'react';
 import Table from '../table/Table.js'
 import Matches from '../matches/Matches.js';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
+// import { BrowserRouter, Route} from 'react-router-dom';
 import './CentreDiv.css'
+
+// does CentreDiv need to be its own component? Can this styling be part of main page?
 
 export default class CentreDiv extends Component {
 

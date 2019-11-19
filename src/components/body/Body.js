@@ -37,7 +37,7 @@ class Body extends Component {
           <tr
             onClick={this.goToFixtures}
           >
-            <td>{this.props.position}</td>
+            <td className="left-table">{this.props.position}</td>
             <td>{this.teamNameEditor(this.props.team)}</td>
             <td>{this.props.played}</td>
             <td>{this.props.won}</td>
@@ -46,7 +46,7 @@ class Body extends Component {
             <td>{this.props.gf}</td>
             <td>{this.props.ga}</td>
             <td>{this.props.gd}</td>
-            <td>{this.props.points}</td>
+            <td className="right-table">{this.props.points}</td>
           </tr> 
         )
     }
