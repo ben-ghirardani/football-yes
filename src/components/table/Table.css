@@ -1,10 +1,18 @@
 table {
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 8%;
   color: black;
   border-collapse: collapse;
+  width: 70%;
 }
 
 tbody {
   height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  table {
+    width: 100%;
+    margin: 0 auto;
+  }
 }

@@ -1,10 +1,10 @@
 tr {
   color: black;
+  border-bottom: 1px dotted darkgray;
 }
 
 tr:hover td {
   background-color: #7FFF00;
-  /* border-radius: 25px; */
 }
 
 .right-table {
@@ -13,6 +13,8 @@ tr:hover td {
 }
 
 .left-table {
+  padding: 3px;
   border-bottom-left-radius: 15px;
   border-top-left-radius: 15px;
+  text-align: center;
 }

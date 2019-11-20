@@ -7,7 +7,7 @@ export default class TableHeader extends Component {
   render() {
     return (
       <tr>
-        <th>Pos.</th>
+        <th className="pos">Pos.</th>
         <th>Team</th>
         <th>MP</th>
         <th>W</th>
