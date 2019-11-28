@@ -4,7 +4,7 @@ tr {
 }
 
 tr:hover td {
-  background-color: #7FFF00;
+  background-color: rgb(153, 255, 51);
 }
 
 .right-table {

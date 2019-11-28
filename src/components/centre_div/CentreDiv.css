@@ -4,6 +4,8 @@
   border-right: 1px solid black;
   grid-column: 2;
   display: grid;
+  /* justify center doesn't appear to have any effect */
+  justify-items: center;
   /* can I split text-align? left for text, center for numbers? This would be likely be on table */
   text-align: left;
   overflow: scroll;
