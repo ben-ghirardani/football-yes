@@ -1,6 +1,12 @@
 tr {
   color: black;
   border-bottom: 1px dotted darkgray;
+  font-family: Arial, Helvetica, sans-serif, "sans serif";
+}
+
+/* check which applies, remove the other */
+td {
+  font-family: Arial, Helvetica, sans-serif, "sans serif";
 }
 
 tr:hover td {
