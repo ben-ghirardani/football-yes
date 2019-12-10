@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import teamNameEditor from '../team_name_editor/TeamNameEdtor.js'
 import './MatchTile.css';
 
 export default class MatchTile extends Component {
@@ -31,9 +32,9 @@ export default class MatchTile extends Component {
 
         <div className="teams-and-scores"> 
           {
-            this.props.homeTeam+" ("+this.scoreCheck(this.props.homeHalfTimeScore)+") "+this.scoreCheck(this.props.homeFullTimeScore) +
+            teamNameEditor(this.props.homeTeam)+" ("+this.scoreCheck(this.props.homeHalfTimeScore)+") "+this.scoreCheck(this.props.homeFullTimeScore) +
             " - " +
-            this.props.awayTeam+" ("+this.scoreCheck(this.props.awayHalfTimeScore)+") "+this.scoreCheck(this.props.awayFullTimeScore)
+            teamNameEditor(this.props.awayTeam)+" ("+this.scoreCheck(this.props.awayHalfTimeScore)+") "+this.scoreCheck(this.props.awayFullTimeScore)
           }
         </div>
 

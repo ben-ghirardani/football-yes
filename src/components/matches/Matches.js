@@ -9,7 +9,7 @@ export default class Matches extends Component {
 
   render () {
     return (
-      <>
+      <div className="matches">
         <h1>Fixtures: {this.props.currentTeam}</h1>
         {
           this.props.teamMatches.map(function(match){
@@ -25,7 +25,7 @@ export default class Matches extends Component {
                     />
           })
         }
-      </>
+      </div>
     ) 
   }
 

@@ -1,17 +1,19 @@
 .match-tile {
-  width: 70%;
-  margin-top: 10px;
-  margin-left: auto;
+  margin-top: 5%;
+  margin-left: 30%;
   margin-right: auto;
   padding-bottom: 5%;
   padding-top: 5%;
-  border: 1px solid blue;
   font-family: Arial, Helvetica, sans-serif, "sans serif";
 }
 
 .teams-and-scores {
-  margin-left: 5%;
   margin-right: auto;
-  border: 1px solid pink;
   font-family: Arial, Helvetica, sans-serif, "sans serif";
+}
+
+@media only screen and (max-width: 750px) {
+  .match-tile {
+    margin-left: 10%;
+  }
 }

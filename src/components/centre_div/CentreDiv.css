@@ -9,4 +9,5 @@
   /* can I split text-align? left for text, center for numbers? This would be likely be on table */
   text-align: left;
   overflow: scroll;
+  width: 100%;
 }

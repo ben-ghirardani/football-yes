@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import teamNameEditor from '../team_name_editor/TeamNameEdtor.js'
 import './Body.css';
 
 // sits inside Table with TableHeader
@@ -9,7 +10,7 @@ class Body extends Component {
   constructor(props) {
     super(props);
     this.goToFixtures = this.goToFixtures.bind(this);
-    this.teamNameEditor = this.teamNameEditor.bind(this);
+    // this.teamNameEditor = this.teamNameEditor.bind(this);
   }
 
   // using react-router-dom, import withRouter, wrap the export of class in withRouter, 
@@ -26,19 +27,13 @@ class Body extends Component {
     this.props.history.push("/fixtures");
   }
 
-  teamNameEditor (name) {
-    let firstEdit = name.replace("AFC ", "");
-    let secondEdit = firstEdit.replace(" FC", "");
-    return secondEdit;
-  }
-
   render() {
         return(
           <tr
             onClick={this.goToFixtures}
           >
             <td className="left-table">{this.props.position}</td>
-            <td>{this.teamNameEditor(this.props.team)}</td>
+            <td>{teamNameEditor(this.props.team)}</td>
             <td>{this.props.played}</td>
             <td>{this.props.won}</td>
             <td>{this.props.draw}</td>
