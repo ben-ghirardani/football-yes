@@ -22,11 +22,13 @@ export default class App extends Component {
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
       this.pullFixtureList = this.pullFixtureList.bind(this);
       this.updateTeamMatches = this.updateTeamMatches.bind(this);
+      this.setLocalState = this.setLocalState.bind(this);
   }
 
   componentDidMount() {
     // call setLocalState here, with the below functions passed to them
-    this.fetchStandings();
+    // this.fetchStandings();
+    this.setLocalState(this.fetchStandings());
     this.fetchMatches();
   }
 
@@ -43,7 +45,8 @@ export default class App extends Component {
 
 
     // ERROR HANDLING!
-    // refactor to either set data + loading = false, or set 'error' to true, in which case render a 'Sometihng went wrong component' 
+    // refactor to return the data, not setState, or return "error". Pass either data or "error" to another function, setState happens
+    // there, render is based on this. So this.state.standings would = "error" or 'data'.
   fetchStandings() {
     fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}} )
       .then(response => response.json())
@@ -62,6 +65,10 @@ export default class App extends Component {
   setLocalState(fetchRequest) {
     // if the fetch request is passed, does that mean it resolves before the rest of the function is accessed? 
     // if so, can I refer to state in the function safe in the knowledge that either data will be there or errors will be flagged?
+    // need to call the fetchRequest straight away, so setLocalState(fetchMatches()) { function things }
+
+    // below is still not working, refactor fetch to return the data, then use another function to use that returned data and seState 
+    console.log("from setLocal - ", this.state.loading)
   }
 
   updateCurrentTeam(team, id) {
