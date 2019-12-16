@@ -1,6 +1,7 @@
 table {
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: auto;
+  margin-bottom: auto;
   color: black;
   border-collapse: collapse;
   width: 70%;
@@ -14,6 +15,5 @@ tbody {
 @media only screen and (max-width: 600px) {
   table {
     width: 100%;
-    margin: 0 auto;
   }
 }

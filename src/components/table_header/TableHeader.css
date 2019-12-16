@@ -1,3 +1,15 @@
+@media only screen and (max-width: 320px) {
+  th {
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  th {
+    font-size: 12px;
+  }
+}
+
 .pos {
   text-align: center;
 }

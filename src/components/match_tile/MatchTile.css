@@ -19,4 +19,10 @@
   }
 }
 
-/* 320 to 750 */
+@media only screen and (min-width: 321px) and (max-width: 719px) {
+  .match-tile {
+    margin-left: 5%;
+  }
+}
+
+/* 320 to 750 media query for sizes between mobile and the full, 3 div main screen */

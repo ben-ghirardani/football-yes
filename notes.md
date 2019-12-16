@@ -33,3 +33,8 @@ correct issue with refreshing fixtures page, either sort out the history or redi
 general styling of pages
 
 styling of monitor screen to mobile screen, media queries, etc.
+
+
+
+
+*** create a History Object for routing to interact with.

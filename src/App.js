@@ -16,20 +16,18 @@ export default class App extends Component {
         loading: true,
         matches: null,
         standings: null,
-        teams: null,
       }
       this.fetchStandings = this.fetchStandings.bind(this);
       this.fetchMatches = this.fetchMatches.bind(this);
-      this.fetchTeams = this.fetchTeams.bind(this);
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
       this.pullFixtureList = this.pullFixtureList.bind(this);
       this.updateTeamMatches = this.updateTeamMatches.bind(this);
   }
 
   componentDidMount() {
+    // call setLocalState here, with the below functions passed to them
     this.fetchStandings();
     this.fetchMatches();
-    this.fetchTeams();
   }
 
   // componentWillUnmount() {
@@ -39,47 +37,32 @@ export default class App extends Component {
     // To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
   // }
 
+
+  // re-factor fetch to add state to local state, so that a refresh on the fixtures page can call on that state (currently 
+  // getting an error as state is null on refresh). Clear local storage on componentWillUnmount? 
+
+
     // ERROR HANDLING!
-    // destructure the results before updating state? Or only pass what i need?
-  async fetchStandings() {
-    if (this.state.standings === null) {
-      const response = await fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}});
-      const data = await response.json();
-      this.setState({standings: data, loading: false});
-    } else {
-      // console.log("error with fetchStandings")
-      return
-    }
+    // refactor to either set data + loading = false, or set 'error' to true, in which case render a 'Sometihng went wrong component' 
+  fetchStandings() {
+    fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}} )
+      .then(response => response.json())
+      .then(data => this.setState({standings: data, loading: false}))
+      .catch(error => this.setState({ error: false }));
+  }  
+
+  fetchMatches() {
+    fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken}} )
+      .then(response => response.json())
+      .then(data => this.setState({matches: data, loading: false}))
+      .catch(error => this.setState({error: false}))
   }
 
-  async fetchMatches() {
-    if (this.state.matches === null) {
-      const response = await fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken}});
-      const data = await response.json();
-      this.setState({matches: data});
-    } else {
-      // console.log("error with fetchMatches")
-      return
-    }
+  // callback for fetching then updating local state, gets passed the fetch request, uses the result to populate local state
+  setLocalState(fetchRequest) {
+    // if the fetch request is passed, does that mean it resolves before the rest of the function is accessed? 
+    // if so, can I refer to state in the function safe in the knowledge that either data will be there or errors will be flagged?
   }
-
-  async fetchTeams() {
-    if (this.state.teams === null) {
-      const response = await fetch(`http://api.football-data.org/v2/competitions/2021/teams`, {headers : {'X-Auth-Token': authToken}});
-      const data = await response.json();
-      this.setState({teams: data});
-    } else {
-      // console.log("error with fetchTeams")
-      return
-    }
-  }
-
-  // fetchStandings() {
-  //   fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}} )
-  //     .then(response => response.json())
-  //     .then(data => this.setState({standings: data, loading: false}))
-  //     .catch(error => this.setState({ error: false }));
-  // }	
 
   updateCurrentTeam(team, id) {
     this.setState({currentTeam: team});
@@ -101,7 +84,7 @@ export default class App extends Component {
     this.setState({teamMatches: matches})
   }
 
-    render() {
+  render() {
     return (
       <div className="app">
         {
