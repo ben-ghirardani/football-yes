@@ -22,8 +22,10 @@ class Body extends Component {
   goToFixtures () {
     let team = this.props.team
     let id = this.props.id
+    let matches = localStorage.getItem("matches");
+    let parsedMatches = JSON.parse(matches)
     this.props.updateCurrentTeam(team, id);
-    this.props.updateTeamMatches(this.props.pullFixtureList(id, this.props.matches.matches))
+    this.props.updateTeamMatches(this.props.getTeamStoredMatches(id, parsedMatches))
     this.props.history.push("/fixtures");
   }
 

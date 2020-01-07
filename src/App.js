@@ -20,8 +20,8 @@ export default class App extends Component {
       this.fetchStandings = this.fetchStandings.bind(this);
       this.fetchMatches = this.fetchMatches.bind(this);
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
-      this.pullFixtureList = this.pullFixtureList.bind(this);
       this.updateTeamMatches = this.updateTeamMatches.bind(this);
+      this.getTeamStoredMatches = this.getTeamStoredMatches.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +34,8 @@ export default class App extends Component {
     // Warning: Can't perform a React state update on an unmounted component. 
     // This is a no-op, but it indicates a memory leak in your application. 
     // To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+
+    // using local storage to fix above issue, still need to cancel subscriptions
 
     // double check when this clears, need it available on the fixtures page for when I switch back
     localStorage.clear();
@@ -60,19 +62,19 @@ export default class App extends Component {
     this.setState({currentTeamID: id})
   }
 
-  pullFixtureList(teamID, matches) {
-    let teamMatches = [];
-    matches.forEach(match => {
-      if(match.homeTeam.id === teamID || match.awayTeam.id === teamID) {
-        teamMatches.push(match);
-      }
-    });
-    console.log("home & away matches - ", teamMatches);
-    return teamMatches
-  }
-
+  // refactor this function to interact with localStorage in order for matches render on browser reload
   updateTeamMatches(matches) {
     this.setState({teamMatches: matches})
+  }
+
+  getTeamStoredMatches(teamID, parsedStoredMatches) {
+    let teamStoredMatches = [];
+    parsedStoredMatches.forEach(match => {
+      if(match.homeTeam.id === teamID || match.awayTeam.id === teamID) {
+        teamStoredMatches.push(match);
+      } 
+    });
+    return teamStoredMatches;
   }
 
   render() {
@@ -86,7 +88,7 @@ export default class App extends Component {
             currentTeam={this.state.currentTeam}
             currentTeamID={this.state.currentTeamID}
             matches={this.state.matches}
-            pullFixtureList={this.pullFixtureList}
+            getTeamStoredMatches={this.getTeamStoredMatches}
             updateTeamMatches={this.updateTeamMatches}
             teamMatches={this.state.teamMatches}
           />
@@ -96,4 +98,3 @@ export default class App extends Component {
     }
 
 }
-

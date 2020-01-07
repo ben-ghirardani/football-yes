@@ -15,7 +15,7 @@ export default class MainPage extends Component {
           currentTeam={this.props.currentTeam}
           currentTeamID={this.props.currentTeamID}
           matches={this.props.matches}
-          pullFixtureList={this.props.pullFixtureList}
+          getTeamStoredMatches={this.props.getTeamStoredMatches}
           updateTeamMatches={this.props.updateTeamMatches}
           teamMatches={this.props.teamMatches}
         />
