@@ -17,7 +17,7 @@ export default class MainPage extends Component {
           matches={this.props.matches}
           getTeamStoredMatches={this.props.getTeamStoredMatches}
           updateTeamMatches={this.props.updateTeamMatches}
-          teamMatches={this.props.teamMatches}
+          accessStoredTeamMatches={this.props.accessStoredTeamMatches}
         />
       </div>
     )

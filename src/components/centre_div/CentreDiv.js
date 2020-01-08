@@ -32,7 +32,7 @@ export default class CentreDiv extends Component {
                   currentTeam={this.props.currentTeam} 
                   currentTeamID={this.props.currentTeamID}
                   matches={this.props.matches}
-                  teamMatches={this.props.teamMatches}
+                  accessStoredTeamMatches={this.props.accessStoredTeamMatches}
                 />
               }
             />

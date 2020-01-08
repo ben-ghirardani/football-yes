@@ -22,6 +22,7 @@ export default class App extends Component {
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
       this.updateTeamMatches = this.updateTeamMatches.bind(this);
       this.getTeamStoredMatches = this.getTeamStoredMatches.bind(this);
+      this.accessStoredTeamMatches = this.accessStoredTeamMatches.bind(this);
   }
 
   componentDidMount() {
@@ -64,7 +65,8 @@ export default class App extends Component {
 
   // refactor this function to interact with localStorage in order for matches render on browser reload
   updateTeamMatches(matches) {
-    this.setState({teamMatches: matches})
+    this.setState({teamMatches: matches});
+    localStorage.setItem("teamMatches", JSON.stringify(matches));
   }
 
   getTeamStoredMatches(teamID, parsedStoredMatches) {
@@ -75,6 +77,11 @@ export default class App extends Component {
       } 
     });
     return teamStoredMatches;
+  }
+
+  accessStoredTeamMatches() {
+    let storedTeamMatches = JSON.parse(localStorage.getItem("teamMatches"));
+    return storedTeamMatches
   }
 
   render() {
@@ -90,7 +97,7 @@ export default class App extends Component {
             matches={this.state.matches}
             getTeamStoredMatches={this.getTeamStoredMatches}
             updateTeamMatches={this.updateTeamMatches}
-            teamMatches={this.state.teamMatches}
+            accessStoredTeamMatches={this.accessStoredTeamMatches}
           />
         }
       </div>
