@@ -7,6 +7,8 @@ const utcDateConvert = (utcDate) => {
    
     let threeDigitMonth = null;
 
+    // change the below to an arraf of months, index = monthNum - 1
+    // is there a performance difference between an array and this way?
     if (monthNum === "01") {
         threeDigitMonth = "Jan"
     } else if (monthNum === "02") {

@@ -23,18 +23,15 @@ package.json
 To do -
 
 Component will unmount - unsubscribe to APIs
+*** do i need to cancel localStorage? If so where?
   
 error handling for the fetch requests
   
 make sure the promises are working correctly, add logic to the table that allows it to render with no data? Rather than just say 'error', could bring up an unpopulated table - then ask to reload, or re-send a fetch request after a certain time?
 
-correct issue with refreshing fixtures page, either sort out the history or redirect to main page.
-
 general styling of pages
 
 styling of monitor screen to mobile screen, media queries, etc.
-
-
 
 
 *** create a History Object for routing to interact with.
