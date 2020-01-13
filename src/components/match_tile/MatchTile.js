@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import teamNameEditor from '../team_name_editor/TeamNameEdtor.js'
+import teamNameEditor from '../team_name_editor/TeamNameEditor.js'
 import './MatchTile.css';
 
 export default class MatchTile extends Component {

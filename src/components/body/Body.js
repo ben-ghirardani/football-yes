@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import teamNameEditor from '../team_name_editor/TeamNameEdtor.js'
+import teamNameEditor from '../team_name_editor/TeamNameEditor.js'
 import './Body.css';
 
 // sits inside Table with TableHeader

@@ -35,3 +35,7 @@ styling of monitor screen to mobile screen, media queries, etc.
 
 
 *** create a History Object for routing to interact with.
+
+
+
+*** Check file and folder names for consisitency
