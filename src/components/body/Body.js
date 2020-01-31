@@ -35,14 +35,14 @@ class Body extends Component {
             onClick={this.goToFixtures}
           >
             <td className="left-table">{this.props.position}</td>
-            <td>{teamNameEditor(this.props.team)}</td>
-            <td>{this.props.played}</td>
-            <td>{this.props.won}</td>
-            <td>{this.props.draw}</td>
-            <td>{this.props.lost}</td>
-            <td>{this.props.gf}</td>
-            <td>{this.props.ga}</td>
-            <td>{this.props.gd}</td>
+            <td className="td">{teamNameEditor(this.props.team)}</td>
+            <td className="td">{this.props.played}</td>
+            <td className="td">{this.props.won}</td>
+            <td className="td">{this.props.draw}</td>
+            <td className="td">{this.props.lost}</td>
+            <td className="td">{this.props.gf}</td>
+            <td className="td">{this.props.ga}</td>
+            <td className="td">{this.props.gd}</td>
             <td className="right-table">{this.props.points}</td>
           </tr> 
         )
@@ -51,3 +51,6 @@ class Body extends Component {
 }
 
 export default withRouter(Body);
+
+
+// withRouter should be used in the <Router/>

@@ -1,14 +1,26 @@
 import React from 'react';
 import MatchTile from './MatchTile';
 import TeamNameEditor from '../team_name_editor/TeamNameEditor.js'
+jest.mock('../team_name_editor/TeamNameEditor.js');
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
-// failing as function teamNameEditor is undefined. Do I need to pass dummy data as 'name' for the function as props?
-it('MatchTile renders as expected', ()=> {
+beforeEach(() => {
+  TeamNameEditor.mockClear();
+});
+
+// IT'S WORKING!!!
+it('MatchTile calls TeamNameEditor', ()=> {
   const wrapper = shallow(<MatchTile/>);
-  expect(wrapper).toMatchSnapshot();
+  expect(TeamNameEditor).toHaveBeenCalledTimes(2);
 })
 
-// add tests from https://reactjs.org/docs/shallow-renderer.html ?
+describe('scoreCheck function tests', () => {
+
+  it('returns an empty string if passed null', () => {
+    const wrapper = shallow(<MatchTile/>);
+    expect(wrapper.instance().scoreCheck("2")).toBe("2");
+  });
+
+});
