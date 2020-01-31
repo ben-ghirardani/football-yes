@@ -10,18 +10,14 @@ beforeEach(() => {
   wrapper = shallow(<Header/>);
 });
 
-describe('Header tests', () => {
+it('matches snapshot', ()=> {
+  expect(wrapper).toMatchSnapshot();
+})
 
-  it('Header renders as expected', ()=> {
-    expect(wrapper).toMatchSnapshot();
-  })
+it('should return a div', () => {
+  expect(wrapper.find('div')).toHaveLength(1);
+});
 
-  it('should return a div', () => {
-    expect(wrapper.find('div')).toHaveLength(1);
-  });
-
-  it('should say Football? Yes!', () => {
-    expect(wrapper.find('div').text()).toEqual('Football? Yes!');
-  });
-
+it('should say Football? Yes!', () => {
+  expect(wrapper.find('div').text()).toEqual('Football? Yes!');
 });

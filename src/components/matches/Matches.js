@@ -7,12 +7,14 @@ import './Matches.css';
 
 export default class Matches extends Component {
 
+  theData = this.props.accessStoredTeamMatches();
+
   render () {
     return (
       <div className="matches">
         <h1>Fixtures: {this.props.currentTeam}</h1>
         {
-          this.props.accessStoredTeamMatches().map(function(match){
+          this.theData.map(function(match){
             return <MatchTile
                       key={match.id}
                       date={utcDateConvert(match.utcDate)}
@@ -30,3 +32,25 @@ export default class Matches extends Component {
   }
 
 }
+
+  // render () {
+  //   return (
+  //     <div className="matches">
+  //       <h1>Fixtures: {this.props.currentTeam}</h1>
+  //       {
+  //         this.props.accessStoredTeamMatches().map(function(match){
+  //           return <MatchTile
+  //                     key={match.id}
+  //                     date={utcDateConvert(match.utcDate)}
+  //                     homeTeam={match.homeTeam.name}
+  //                     homeHalfTimeScore={match.score.halfTime.homeTeam}
+  //                     homeFullTimeScore={match.score.fullTime.homeTeam}
+  //                     awayTeam={match.awayTeam.name}
+  //                     awayHalfTimeScore={match.score.halfTime.awayTeam}
+  //                     awayFullTimeScore={match.score.fullTime.awayTeam}
+  //                   />
+  //         })
+  //       }
+  //     </div>
+  //   ) 
+  // }
