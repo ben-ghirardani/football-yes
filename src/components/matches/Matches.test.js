@@ -31,7 +31,7 @@ beforeEach(() => {
         }
       },
       {
-        id: 1,
+        id: 2,
         utcDate: "2019-09-26T15:34:46Z",
         homeTeam: {
         name: "Liverpool"
@@ -54,13 +54,24 @@ beforeEach(() => {
   }
 });
 
-it('renders as expected', ()=> {
+it('matches snapshot', ()=> {
   const wrapper = shallow(<Matches {...props} />);
   expect(wrapper).toMatchSnapshot();
 })
 
-it('renders a div with className matches', () => {
+it('renders div with className .matches', () => {
   const wrapper = shallow(<Matches {...props} />);
   expect(wrapper.find('div')).toHaveLength(1);
   expect(wrapper.find('.matches')).toHaveLength(1);
+});
+
+it('renders h1 with correct text', () => {
+  const wrapper = shallow(<Matches {...props} />);
+  expect(wrapper.find('h1')).toHaveLength(1);
+  expect(wrapper.find('h1').text()).toEqual("Fixtures: Arsenal");
+});
+
+it('calls map method no. of times equal to length of stored matches', () => {
+  const wrapper = mount(<Matches {...props} />);
+  expect(wrapper.find('MatchTile')).toHaveLength(2);
 });

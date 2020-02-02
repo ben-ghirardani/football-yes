@@ -7,7 +7,7 @@ configure({ adapter: new Adapter() });
 let wrapper;
 
 beforeEach(() => {
-  wrapper = mount(<Body/>);
+  wrapper = shallow(<Body/>);
 })
 
 describe('Body tests', () => {

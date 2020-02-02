@@ -42,4 +42,4 @@ export default class MatchTile extends Component {
     )
   }
 
-} 
+}

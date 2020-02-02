@@ -7,7 +7,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { jsxEmptyExpression } from '@babel/types';
 
-it('renders without crashing', () => {
+it('matches snapshot', () => {
   const wrapper = shallow(<App/>);
   expect(wrapper).toMatchSnapshot();
 });
+
