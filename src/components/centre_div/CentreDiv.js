@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Table from '../table/Table.js'
 import Matches from '../matches/Matches.js';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { Route} from 'react-router-dom';
 import './CentreDiv.css'
 
 // does CentreDiv need to be its own component? Can this styling be part of main page?
@@ -11,7 +11,7 @@ export default class CentreDiv extends Component {
   render() {
     return(
       <div className="centre-div">
-        <Router>
+        {/* <Router> */}
           <>
             <Route path="/" exact render=
               {() => 
@@ -37,7 +37,7 @@ export default class CentreDiv extends Component {
               }
             />
           </>
-        </Router>
+        {/* </Router> */}
       </div>
     )
   }

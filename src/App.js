@@ -4,6 +4,8 @@ import Loading from './components/loading/Loading';
 import MainPage from './components/main_page/MainPage.js'
 import './App.css'
 
+import { BrowserRouter as Router, withRouter } from 'react-router-dom';
+
 export default class App extends Component {
 
   constructor(props) {
@@ -86,21 +88,23 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        {
-          this.state.loading ? <Loading/> : 
-          <MainPage
-            standings={this.state.standings}
-            updateCurrentTeam={this.updateCurrentTeam}
-            currentTeam={this.state.currentTeam}
-            currentTeamID={this.state.currentTeamID}
-            matches={this.state.matches}
-            getTeamStoredMatches={this.getTeamStoredMatches}
-            updateTeamMatches={this.updateTeamMatches}
-            accessStoredTeamMatches={this.accessStoredTeamMatches}
-          />
-        }
-      </div>
+      <Router>
+        <div className="app">
+          {
+            this.state.loading ? <Loading/> : 
+            <MainPage
+              standings={this.state.standings}
+              updateCurrentTeam={this.updateCurrentTeam}
+              currentTeam={this.state.currentTeam}
+              currentTeamID={this.state.currentTeamID}
+              matches={this.state.matches}
+              getTeamStoredMatches={this.getTeamStoredMatches}
+              updateTeamMatches={this.updateTeamMatches}
+              accessStoredTeamMatches={this.accessStoredTeamMatches}
+            />
+          }
+        </div>
+      </Router>
     )
     }
 

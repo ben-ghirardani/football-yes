@@ -4,37 +4,35 @@ import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
-let wrapper;
+let props;
 
 beforeEach(() => {
-  wrapper = shallow(<Body/>);
+  props = {
+    position: 1,
+    team: "Arsenal",
+    id: 456,
+    played: 10,
+    won: 5,
+    draw: 3,
+    lost: 2,
+    gf: 20,
+    ga: 10,
+    gd: 10,
+    points: 18,
+    teamNameEditor: jest.fn().mockReturnValue("Arsenal")
+  }
 })
 
 describe('Body tests', () => {
 
-  it('Body renders as expected', ()=> {
+  it('matches snapshot', ()=> {
+    const wrapper = shallow(<Body {...props} />);
     expect(wrapper).toMatchSnapshot();
   })
 
   it('renders a table row', ()=> {
-    expect(wrapper.find('tr').length).toEqual(1);
+    const wrapper = shallow(<Body {...props} />)
+    expect(wrapper.find('tr')).toHaveLength(1);
   })
 
 });
-
-// it('List renders table', () => {
-//   expect(list.find('table').length).toEqual(1);
-// });
-
-// it('Class of rendered table', () => {
-//   expect(list.find('.myClass').length).toEqual(1);
-// });
-
-// const wrapper = shallow(<MyComponent />);
-// expect(wrapper.find('.foo')).to.have.lengthOf(1);
-// expect(wrapper.find('.bar')).to.have.lengthOf(3);
-
-// // compound selector
-// expect(wrapper.find('div.some-class')).to.have.length(3);
-
-  // expect(list.find('table').length).toEqual(1);

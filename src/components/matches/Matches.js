@@ -7,6 +7,7 @@ import './Matches.css';
 
 export default class Matches extends Component {
 
+  // is this necessary? Or call accessStoredTeamMatches in the map function? 
   theData = this.props.accessStoredTeamMatches();
 
   render () {

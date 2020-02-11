@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import teamNameEditor from '../team_name_editor/TeamNameEditor.js'
 import './Body.css';
 
@@ -26,16 +26,19 @@ class Body extends Component {
     let parsedMatches = JSON.parse(matches)
     this.props.updateCurrentTeam(team, id);
     this.props.updateTeamMatches(this.props.getTeamStoredMatches(id, parsedMatches))
-    this.props.history.push("/fixtures");
+    // this.props.history.push("/fixtures");
   }
 
   render() {
         return(
           <tr
-            onClick={this.goToFixtures}
+            // onClick={this.goToFixtures}
           >
             <td className="left-table">{this.props.position}</td>
-            <td className="td">{teamNameEditor(this.props.team)}</td>
+            {/* <td className="td">{teamNameEditor(this.props.team)}</td> */}
+
+            {/* pass the logic from goToFixtures as props */}
+            <td className="td"> <Link to="/fixtures" onClick={() => this.goToFixtures()}>{teamNameEditor(this.props.team)}</Link> </td>
             <td className="td">{this.props.played}</td>
             <td className="td">{this.props.won}</td>
             <td className="td">{this.props.draw}</td>
@@ -50,7 +53,8 @@ class Body extends Component {
 
 }
 
-export default withRouter(Body);
+export default Body;
+// export default withRouter(Body);
 
 
 // withRouter should be used in the <Router/>
