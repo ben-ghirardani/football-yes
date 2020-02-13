@@ -60,8 +60,7 @@ it('renders the correct elements', () => {
   expect(wrapper.find('tbody')).toHaveLength(1);
 });
 
-// getting the same error here as <Body/> due to withRouter being used outside of a Router. Fix first.
 it('renders the correct number of body components', () => {
-  const wrapper = mount(<Table {...props} />);
+  const wrapper = shallow(<Table {...props} />);
   expect(wrapper.find('Body')).toHaveLength(2);
 });

@@ -72,6 +72,6 @@ it('renders h1 with correct text', () => {
 });
 
 it('calls map method no. of times equal to length of stored matches', () => {
-  const wrapper = mount(<Matches {...props} />);
+  const wrapper = shallow(<Matches {...props} />);
   expect(wrapper.find('MatchTile')).toHaveLength(2);
 });

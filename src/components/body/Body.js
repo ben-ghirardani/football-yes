@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import teamNameEditor from '../team_name_editor/TeamNameEditor.js'
 import './Body.css';
 
@@ -10,14 +10,7 @@ class Body extends Component {
   constructor(props) {
     super(props);
     this.goToFixtures = this.goToFixtures.bind(this);
-    // this.teamNameEditor = this.teamNameEditor.bind(this);
   }
-
-  // using react-router-dom, import withRouter, wrap the export of class in withRouter, 
-  // can then call .push on the history object
-  // https://stackoverflow.com/questions/42701129/how-to-push-to-history-in-react-router-v4
-
-  // *** applies to v5? ***
 
   goToFixtures () {
     let team = this.props.team
@@ -26,18 +19,12 @@ class Body extends Component {
     let parsedMatches = JSON.parse(matches)
     this.props.updateCurrentTeam(team, id);
     this.props.updateTeamMatches(this.props.getTeamStoredMatches(id, parsedMatches))
-    // this.props.history.push("/fixtures");
   }
 
   render() {
         return(
-          <tr
-            // onClick={this.goToFixtures}
-          >
+          <tr>
             <td className="left-table">{this.props.position}</td>
-            {/* <td className="td">{teamNameEditor(this.props.team)}</td> */}
-
-            {/* pass the logic from goToFixtures as props */}
             <td className="td"> <Link to="/fixtures" onClick={() => this.goToFixtures()}>{teamNameEditor(this.props.team)}</Link> </td>
             <td className="td">{this.props.played}</td>
             <td className="td">{this.props.won}</td>
@@ -54,7 +41,3 @@ class Body extends Component {
 }
 
 export default Body;
-// export default withRouter(Body);
-
-
-// withRouter should be used in the <Router/>

@@ -8,14 +8,15 @@ import './Matches.css';
 export default class Matches extends Component {
 
   // is this necessary? Or call accessStoredTeamMatches in the map function? 
-  theData = this.props.accessStoredTeamMatches();
+  // theData = this.props.accessStoredTeamMatches();
 
   render () {
     return (
       <div className="matches">
         <h1>Fixtures: {this.props.currentTeam}</h1>
         {
-          this.theData.map(function(match){
+          // this.theData.map(function(match){
+          this.props.accessStoredTeamMatches().map(function(match){  
             return <MatchTile
                       key={match.id}
                       date={utcDateConvert(match.utcDate)}

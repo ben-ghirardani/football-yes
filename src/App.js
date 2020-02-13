@@ -3,8 +3,7 @@ import authToken from './AuthToken';
 import Loading from './components/loading/Loading';
 import MainPage from './components/main_page/MainPage.js'
 import './App.css'
-
-import { BrowserRouter as Router, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export default class App extends Component {
 
