@@ -1,0 +1,38 @@
+.loading {
+  background-image: url("../images/GrassBackground.png");
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0px, 200px) minmax(750px, auto) minmax(0px, 200px);
+  grid-template-rows: 1fr 9fr;
+  text-align: center;
+} 
+
+@media only screen and (max-width: 750px) {
+  .loading {
+    grid-template-columns: minmax(0px, 0px) minmax(300px, 750px) minmax(0px, 0px);
+  }
+}
+
+.central-column {
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  grid-column: 2;
+  display: grid;
+  justify-items: center;
+  text-align: left;
+  overflow: scroll;
+  width: 100%;
+}
+
+.message {
+  text-align: center;
+  font-size: 20px;
+  height: 30px;
+  width: 100px;
+  margin: 0 auto;
+  line-height: 300px;
+}

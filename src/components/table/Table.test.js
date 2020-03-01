@@ -60,7 +60,8 @@ it('renders the correct elements', () => {
   expect(wrapper.find('tbody')).toHaveLength(1);
 });
 
-it('renders the correct number of body components', () => {
+it('renders the correct number of <TableHeder/> and <Body/> components', () => {
   const wrapper = shallow(<Table {...props} />);
   expect(wrapper.find('Body')).toHaveLength(2);
+  expect(wrapper.find('TableHeader')).toHaveLength(1);
 });

@@ -32,14 +32,6 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    // getting the following error when refreshing Matches. 
-    // Warning: Can't perform a React state update on an unmounted component. 
-    // This is a no-op, but it indicates a memory leak in your application. 
-    // To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
-
-    // using local storage to fix above issue, still need to cancel subscriptions
-
-    // double check when this clears, need it available on the fixtures page for when I switch back
     localStorage.clear();
   }
 
@@ -64,7 +56,6 @@ export default class App extends Component {
     this.setState({currentTeamID: id})
   }
 
-  // refactor this function to interact with localStorage in order for matches render on browser reload
   updateTeamMatches(matches) {
     this.setState({teamMatches: matches});
     localStorage.setItem("teamMatches", JSON.stringify(matches));

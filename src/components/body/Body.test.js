@@ -19,7 +19,9 @@ beforeEach(() => {
     ga: 10,
     gd: 10,
     points: 18,
-    teamNameEditor: jest.fn().mockReturnValue("Arsenal")
+    teamNameEditor: jest.fn().mockReturnValue("Arsenal"),
+    prepFixtureData: jest.fn()
+
   }
 })
 
@@ -30,9 +32,24 @@ describe('Body tests', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
-  it('renders a table row', ()=> {
+  it('renders correct number of <tr/> and <td/>', ()=> {
     const wrapper = shallow(<Body {...props} />)
     expect(wrapper.find('tr')).toHaveLength(1);
+    expect(wrapper.find('td')).toHaveLength(10);
   })
+
+  it('displays correct data', () => {
+    const wrapper = shallow(<Body {...props} />);
+    expect(wrapper.find('.position').text()).toBe('1');
+    expect(wrapper.find('.link-to-fixtures').text()).toBe('Arsenal');
+    expect(wrapper.find('.played').text()).toBe('10');
+    expect(wrapper.find('.won').text()).toBe('5');
+    expect(wrapper.find('.draw').text()).toBe('3');
+    expect(wrapper.find('.lost').text()).toBe('2');
+    expect(wrapper.find('.gf').text()).toBe('20');
+    expect(wrapper.find('.ga').text()).toBe('10');
+    expect(wrapper.find('.gd').text()).toBe('10');
+    expect(wrapper.find('.points').text()).toBe('18');
+  });
 
 });
