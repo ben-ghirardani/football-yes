@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import authToken from './CAuthToken.js';
+import authToken from './AuthToken.js';
 import Loading from './components/loading/Loading.js';
 import MainPage from './components/main_page/MainPage.js'
 import './App.css'
