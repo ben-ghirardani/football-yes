@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import authToken from './AuthToken';
-import Loading from './components/loading/Loading';
+import authToken from './AuthToken.js';
+import Loading from './components/loading/Loading.js';
 import MainPage from './components/main_page/MainPage.js'
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom';
