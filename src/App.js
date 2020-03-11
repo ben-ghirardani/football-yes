@@ -34,16 +34,16 @@ export default class App extends Component {
   componentWillUnmount() {
     localStorage.clear();
   }
-
+  
   fetchStandings() {
-    fetch(`http://api.football-data.org/v2/competitions/2021/standings`, {headers : {'X-Auth-Token': authToken}} )
+    fetch('http://api.football-data.org/v2/competitions/2021/standings', {headers : {'X-Auth-Token': authToken}} )
       .then(response => response.json())
       .then(data => this.setState({standings: data, loading: false}))
       .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings.standings[0].table)) } )
       .catch(error => console.log(error.message));
   }  
 
-  fetchMatches() {
+  fetchMatches(currentYear) {
     fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken} } )
       .then(response => response.json())
       .then(data => this.setState({matches: data, loading: false} ) )
