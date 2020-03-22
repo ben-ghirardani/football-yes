@@ -28,3 +28,14 @@ Component will unmount - unsubscribe to APIs
 *** Check file and folder names for consisitency
 
 Only current year available? Need to update fetch requests dynamically?
+
+
+cut from netlify.toml -
+
+  <!-- [build] -->
+    <!-- Command = "npm run lambda-build" -->
+    <!-- Functions = "lambda" -->
+
+
+Changed name of file to fetchMatches, changed package.json name to match it. Commented out setState line. Edited fetchMatches in app.js
+Something is wrong.

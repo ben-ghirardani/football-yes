@@ -4,9 +4,9 @@ const { AUTH_TOKEN } = process.env;
 
 exports.handler = function(event, context, callback) {
 
-  return fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': AUTH_TOKEN} } )
+  return fetch('http://api.football-data.org/v2/competitions/2021/standings', {headers : {'X-Auth-Token': AUTH_TOKEN} } )
     .then(response => response.json())
-    .then(data => this.setState({matches: data, loading: false} ) )
+    // .then(data => this.setState({matches: data, loading: false} ) )
     .then(response => {
       return callback(null, {
         statusCode: 200,
