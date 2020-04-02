@@ -39,3 +39,31 @@ cut from netlify.toml -
 
 Changed name of file to fetchMatches, changed package.json name to match it. Commented out setState line. Edited fetchMatches in app.js
 Something is wrong.
+
+
+First attempts at fetch netlify functions
+
+  // this is returning the code from /public/index.html
+  async fetchMatchesAPI() {
+    const url = '/ .netlify/functions/fetchMatches';
+    try {
+        const response = await fetch(url);
+        // const data = await response.json();
+        const data = await response.json();
+        // console.log(data);
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
+    async fetchStandingsAPI() {
+    const url = `./functions/fetchStandings.js`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
+}
