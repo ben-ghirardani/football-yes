@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import authToken from './AuthToken';
 import Loading from './components/loading/Loading';
 import MainPage from './components/main_page/MainPage.js'
 import './App.css'
 import { BrowserRouter as Router } from 'react-router-dom';
-
-import fetchMatches from '../functions/fetchMatches.js';
-import fetchStandings from '../functions/fetchStandings.js';
 
 export default class App extends Component {
 
@@ -20,9 +16,10 @@ export default class App extends Component {
         loading: true,
         matches: null,
         standings: null,
+        test: null,
       }
-      this.fetchStandings = this.fetchStandings.bind(this);
-      this.fetchMatches = this.fetchMatches.bind(this);
+      this.fetchMatchesAPI = this.fetchMatchesAPI.bind(this);
+      this.fetchStandingsAPI = this.fetchStandingsAPI.bind(this);
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
       this.updateTeamMatches = this.updateTeamMatches.bind(this);
       this.getTeamStoredMatches = this.getTeamStoredMatches.bind(this);
@@ -30,30 +27,42 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchStandings();
-    this.fetchMatches();
+    // this.fetchStandings();
+    // this.fetchMatches();
+    this.fetchMatchesAPI();
+    this.fetchStandingsAPI();
   }
 
   componentWillUnmount() {
     localStorage.clear();
   }
 
-  fetchStandings() {
-    fetch(fetchStandings())
-      .then(response => response.json())
-      .then(data => this.setState({standings: data, loading: false}))
-      .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings.standings[0].table)) } )
-      .catch(error => console.log(error.message));
-  }  
-
-  fetchMatches() {
-    fetch(fetchMatches())
-      // .then(response => response.json())
-      .then(data => this.setState({matches: data, loading: false} ) )
-      .then(success => {localStorage.setItem("matches", JSON.stringify(this.state.matches.matches) ) } )
-      .catch(error => console.log(error.message));
+  // this is returning the code from /public/index.html
+  async fetchMatchesAPI() {
+    const url = '/ .netlify/functions/fetchMatches';
+    try {
+        const response = await fetch(url);
+        // const data = await response.json();
+        const data = await response.json();
+        // console.log(data);
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
   }
 
+    async fetchStandingsAPI() {
+    const url = `./functions/fetchStandings.js`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+  // original fetch requests
   //   fetchStandings() {
   //   fetch('http://api.football-data.org/v2/competitions/2021/standings', {headers : {'X-Auth-Token': authToken}} )
   //     .then(response => response.json())
