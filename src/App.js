@@ -36,7 +36,7 @@ export default class App extends Component {
   }
 
   fetchMatches() {
-    fetch('/ .netlify/functions/fetchMatches')
+    fetch('http://netlify/functions/fetchMatches')
       .then(response => response.json())
       .then(data => this.setState({matches: data, loading: false}))
       .then( success => { localStorage.setItem("matches", JSON.stringify(this.state.matches.matches)) } )
