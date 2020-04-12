@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import authToken from './AuthToken';
 import Loading from './components/loading/Loading';
 import MainPage from './components/main_page/MainPage.js'
 import './App.css'
@@ -17,8 +16,8 @@ export default class App extends Component {
         loading: true,
         matches: null,
         standings: null,
+        test: null,
       }
-      this.fetchStandings = this.fetchStandings.bind(this);
       this.fetchMatches = this.fetchMatches.bind(this);
       this.updateCurrentTeam = this.updateCurrentTeam.bind(this);
       this.updateTeamMatches = this.updateTeamMatches.bind(this);
@@ -29,27 +28,38 @@ export default class App extends Component {
   componentDidMount() {
     this.fetchStandings();
     this.fetchMatches();
+
   }
 
   componentWillUnmount() {
     localStorage.clear();
   }
-  
-  fetchStandings() {
-    fetch('http://api.football-data.org/v2/competitions/2021/standings', {headers : {'X-Auth-Token': authToken}} )
+
+  fetchMatches() {
+    fetch('https://gallant-hawking-a37956.netlify.com/.netlify/functions/fetchMatches')
+      .then(response => response.json())
+      .then(data => this.setState({matches: data, loading: false}))
+      .then( success => { localStorage.setItem("matches", JSON.stringify(this.state.matches.matches)) } )
+      .catch(error => console.log(error.message));
+  }
+
+  // original fetch requests
+
+    fetchStandings() {
+    fetch('https://gallant-hawking-a37956.netlify.com/.netlify/functions/fetchStandings')
       .then(response => response.json())
       .then(data => this.setState({standings: data, loading: false}))
       .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings.standings[0].table)) } )
       .catch(error => console.log(error.message));
-  }  
-
-  fetchMatches(currentYear) {
-    fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken} } )
-      .then(response => response.json())
-      .then(data => this.setState({matches: data, loading: false} ) )
-      .then(success => {localStorage.setItem("matches", JSON.stringify(this.state.matches.matches) ) } )
-      .catch(error => console.log(error.message));
   }
+
+  // fetchMatches() {
+  //   fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken} } )
+  //     .then(response => response.json())
+  //     .then(data => this.setState({matches: data, loading: false} ) )
+  //     .then(success => {localStorage.setItem("matches", JSON.stringify(this.state.matches.matches) ) } )
+  //     .catch(error => console.log(error.message));
+  // }
 
   updateCurrentTeam(team, id) {
     this.setState({currentTeam: team});
