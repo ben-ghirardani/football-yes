@@ -4,7 +4,7 @@ const { AUTH_TOKEN } = process.env;
 
 exports.handler = function(event, context, callback) {
 
-  return fetch('http://api.football-data.org/v2/competitions/2021/standings', 
+  return fetch('https://api.football-data.org/v2/competitions/2021/standings', 
     {headers : {'X-Auth-Token': AUTH_TOKEN, 'Access-Control-Allow-Origin': '*' } } )
       .then(response => response.json())
       .then(response => {
