@@ -26,7 +26,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // this.fetchStandings();
+    this.fetchStandings();
     this.fetchMatches();
 
   }
@@ -35,13 +35,25 @@ export default class App extends Component {
     localStorage.clear();
   }
 
+  // headers from netlify function not working?
   fetchMatches() {
-    fetch('http://netlify/functions/fetchMatches')
+    // specify header rather than '*' ?
+    fetch('https://football-v2.netlify.app/.netlify/functions/fetchMatches', {headers: {'Access-Control-Allow-Origin': '*'}})
       .then(response => response.json())
       .then(data => this.setState({matches: data, loading: false}))
       .then( success => { localStorage.setItem("matches", JSON.stringify(this.state.matches.matches)) } )
       .catch(error => console.log(error.message));
   }
+
+  fetchStandings() {
+    // specify header rather than '*' ?
+    fetch('https://football-v2.netlify.app/.netlify/functions/fetchStandings', {headers: {'Access-Control-Allow-Origin': '*'}})
+      .then(response => response.json())
+      .then(data => this.setState({standings: data, loading: false}))
+      .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings)) } )
+      .catch(error => console.log(error.message));
+  }
+
 
   // original fetch requests
 
