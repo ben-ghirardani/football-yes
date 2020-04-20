@@ -38,11 +38,12 @@ export default class App extends Component {
   // headers from netlify function not working?
   fetchMatches() {
     // specify header rather than '*' ?
-    fetch('https://football-v2.netlify.app/.netlify/functions/fetchMatches', {headers: {'Access-Control-Allow-Origin': '*'}})
-      .then(response => response.json())
-      .then(data => this.setState({matches: data, loading: false}))
-      .then( success => { localStorage.setItem("matches", JSON.stringify(this.state.matches.matches)) } )
-      .catch(error => console.log(error.message));
+    fetch('https://football-v2.netlify.app/.netlify/functions/fetchMatches', 
+      {headers: {'Access-Control-Allow-Origin': '*'}})
+        .then(response => response.json())
+        .then(data => this.setState({matches: data, loading: false}))
+        .then( success => { localStorage.setItem("matches", JSON.stringify(this.state.matches.matches)) } )
+        .catch(error => console.log(error.message));
   }
 
   fetchStandings() {
