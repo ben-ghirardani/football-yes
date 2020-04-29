@@ -45,7 +45,7 @@ First attempts at fetch netlify functions
 
   // this is returning the code from /public/index.html
   async fetchMatchesAPI() {
-    const url = '    https://gallant-hawking-a37956.netlify.com/.netlify/functions/fetchMatches';
+    const url = '/ .netlify/functions/fetchMatches';
     try {
         const response = await fetch(url);
         // const data = await response.json();
@@ -58,7 +58,7 @@ First attempts at fetch netlify functions
   }
 
     async fetchStandingsAPI() {
-    const url = `https://gallant-hawking-a37956.netlify.com/.netlify/functions/fetchStandings`;
+    const url = `./functions/fetchStandings.js`;
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -67,3 +67,54 @@ First attempts at fetch netlify functions
         console.log(err);
     }
 }
+
+
+fetch Matches
+
+const fetch = require('node-fetch');
+
+const { AUTH_TOKEN } = process.env;
+
+exports.handler = function(event, context, callback) {
+
+  return fetch(`https://api.football-data.org/v2/competitions/2021/matches`, 
+    {headers : {'X-Auth-Token': AUTH_TOKEN, 'Access-Control-Allow-Origin': '*' } } )
+      .then(response => response.json())
+      .then(response => {
+        return callback(null, {
+          statusCode: 200,
+          body: response.body
+        });
+      })
+      .catch(error => {
+        return callback(null, {
+          statusCode: error.status,
+          body: error.body
+        });
+      });
+}
+
+fetch Standings
+
+const fetch = require('node-fetch');
+
+const { AUTH_TOKEN } = process.env;
+
+exports.handler = function(event, context, callback) {
+
+  return fetch('https://api.football-data.org/v2/competitions/2021/standings', 
+    {headers : {'X-Auth-Token': AUTH_TOKEN, 'Access-Control-Allow-Origin': '*' } } )
+      .then(response => response.json())
+      .then(response => {
+        return callback(null, {
+          statusCode: 200,
+          body: response.body
+        });
+      })
+      .catch(error => {
+        return callback(null, {
+          statusCode: error.status,
+          body: error.body
+        });
+      });
+  }
