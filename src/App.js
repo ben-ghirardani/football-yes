@@ -38,7 +38,7 @@ export default class App extends Component {
   // headers from netlify function not working?
   fetchMatches() {
     // specify header rather than '*' ?
-    fetch('https://football-v2.netlify.app/.netlify/functions/fetchMatches', 
+    fetch('/.netlify/functions/fetchMatches',
       {headers: {'Access-Control-Allow-Origin': '*'}})
         .then(response => response.json())
         .then(data => this.setState({matches: data, loading: false}))
@@ -48,7 +48,7 @@ export default class App extends Component {
 
   fetchStandings() {
     // specify header rather than '*' ?
-    fetch('https://football-v2.netlify.app/.netlify/functions/fetchStandings', {headers: {'Access-Control-Allow-Origin': '*'}})
+    fetch('/.netlify/functions/fetchStandings', {headers: {'Access-Control-Allow-Origin': '*'}})
       .then(response => response.json())
       .then(data => this.setState({standings: data, loading: false}))
       .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings)) } )
