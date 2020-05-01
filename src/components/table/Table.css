@@ -11,7 +11,6 @@ tbody {
   height: 100%;
 }
 
-/* what is the width of a mobile? */
 @media only screen and (max-width: 600px) {
   table {
     width: 100%;

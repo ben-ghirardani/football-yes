@@ -4,9 +4,6 @@ import './MatchTile.css';
 
 export default class MatchTile extends Component {
 
-  // write a function that returns the below if there are props, or a 'not yet played' placeholder if results are not in, 
-  // to avoid having 'null' in the results section. Use rest parameter to take in multiple variables?
-
   constructor(props) {
     super(props);
     this.scoreCheck = this.scoreCheck.bind(this);

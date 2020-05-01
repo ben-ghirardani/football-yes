@@ -3,8 +3,6 @@ import MatchTile from '../match_tile/MatchTile.js'
 import utcDateConvert from '../utcDateConvert/utcDateConvert.js';
 import './Matches.css';
 
-// change name to fixtures? to match routing.
-
 export default class Matches extends Component {
 
   render () {

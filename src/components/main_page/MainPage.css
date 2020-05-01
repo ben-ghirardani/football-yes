@@ -5,10 +5,6 @@
   min-height: 100%;
   min-width: 100%;
   display: grid;
-  /* 
-    create a media query for below, large screens, 750 min, smaller on smaller screens, so that 
-    when screen size is reduced, the border strips disapear first
-  */
   grid-template-columns: minmax(0px, 200px) minmax(750px, auto) minmax(0px, 200px);
   grid-template-rows: 1fr 9fr;
   text-align: center;

@@ -13,9 +13,7 @@ const instance = axios.create({
 
 exports.handler = async () => {
   try {
-    // const response = await instance.get(`/competitions/2021/standings`);
     const response = await instance.get(`/competitions/PL/standings`);
-
     return {
       statusCode: 200,
       body: JSON.stringify(response.data)
