@@ -35,9 +35,7 @@ export default class App extends Component {
     localStorage.clear();
   }
 
-  // headers from netlify function not working?
   fetchMatches() {
-    // specify header rather than '*' ?
     fetch('/.netlify/functions/fetchMatches',
       {headers: {'Access-Control-Allow-Origin': '*'}})
         .then(response => response.json())
@@ -47,32 +45,12 @@ export default class App extends Component {
   }
 
   fetchStandings() {
-    // specify header rather than '*' ?
     fetch('/.netlify/functions/fetchStandings', {headers: {'Access-Control-Allow-Origin': '*'}})
       .then(response => response.json())
       .then(data => this.setState({standings: data, loading: false}))
       .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings)) } )
       .catch(error => console.log(error.message));
   }
-
-
-  // original fetch requests
-
-  //   fetchStandings() {
-  //   fetch('http://api.football-data.org/v2/competitions/2021/standings', {headers : {'X-Auth-Token': authToken}} )
-  //     .then(response => response.json())
-  //     .then(data => this.setState({standings: data, loading: false}))
-  //     .then( success => { localStorage.setItem("standings", JSON.stringify(this.state.standings.standings[0].table)) } )
-  //     .catch(error => console.log(error.message));
-  // }
-
-  // fetchMatches() {
-  //   fetch(`http://api.football-data.org/v2/competitions/2021/matches`, {headers : {'X-Auth-Token': authToken} } )
-  //     .then(response => response.json())
-  //     .then(data => this.setState({matches: data, loading: false} ) )
-  //     .then(success => {localStorage.setItem("matches", JSON.stringify(this.state.matches.matches) ) } )
-  //     .catch(error => console.log(error.message));
-  // }
 
   updateCurrentTeam(team, id) {
     this.setState({currentTeam: team});
